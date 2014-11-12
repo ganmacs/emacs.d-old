@@ -95,11 +95,14 @@
 ;; kill buffer
 (global-set-key (kbd "C-M-k") 'kill-this-buffer)
 
+;; ---------- specific mode -------------
+(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Function ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; １行コピー
+;;コピー
 (defun copy-whole-line (&optional arg)
   "Copy current line."
   (interactive "p")

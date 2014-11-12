@@ -1,5 +1,6 @@
 (require 'dired-isearch+)
 (define-key dired-mode-map (kbd "s") 'dired-isearch+)
+(setq dired-isearch+-return "\C-f")
 
 (require 'dired-subtree)
 (define-key dired-mode-map (kbd "i") 'dired-subtree-insert)
