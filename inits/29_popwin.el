@@ -29,10 +29,13 @@
 
 (push '("*Moccur*") popwin:special-display-config)
 
+(push '("*cider-doc*") popwin:special-display-config)
+(push '("*cider-error*") popwin:special-display-config)
+
 ;; (push '("*YaTeX-typesetting*" :noselect t) popwin:special-display-config)
 
 (define-key global-map (kbd "C-x p") 'popwin:display-last-buffer)
 (define-key dired-mode-map "o" #'(lambda ()
                                    (interactive)
                                    (popwin:find-file (dired-get-file-for-visit))))
-(setq popwin:close-popup-window-timer-interval 0.05)
+;; (setq popwin:close-popup-window-timer-interval 0.05)

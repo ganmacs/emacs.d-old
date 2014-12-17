@@ -21,4 +21,5 @@
                 html-mode
                 haml-mode
                 eshell-mode
+                cider-mode
                 markdown-mode)

@@ -3,15 +3,16 @@
 ;; Lisp-mode-setting --------------------------------------------------
 (defvar kb-lisp
   '(("."  . (key-combo-execute-original))
-    (". SPC" . " . ")
+    ;; (". SPC" . " . ")
     ("SPC"  . (key-combo-execute-original))
     ("SPC ." . " . ")
     (","  . (key-combo-execute-original))
     (",@" . " ,@");; for macro
     (";"  . (";; " "; "))
     (";=" . ";=> ")
-    ("="  . ("= " "eq " "equal "))
+    ("="  . ("= " key-combo-execute-original))
     (">=" . ">= ")
+    ("<=" . "<= ")
     ;; ("C-M-x" . (key-combo-execute-original
     ;;             (lambda ()
     ;;               (let ((current-prefix-arg '(4)))
@@ -25,7 +26,8 @@
     emacs-lisp-mode-hook
     lisp-interaction-mode-hook
     inferior-gauche-mode-hook
-    scheme-mode-hook))
+    scheme-mode-hook
+    clojure-mode-hook))
 
 
 ;; commom-setting-----------------------------------------------------------
