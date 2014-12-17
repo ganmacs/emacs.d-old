@@ -1,6 +1,5 @@
 # -*- coding: utf-8; mode: snippet -*-
 #name: define
-# key: def
+# key: d
 # --
-define (${1:name} ${2:args})
-  ($0)
+define ($0)

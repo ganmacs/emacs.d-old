@@ -2,5 +2,5 @@
 #name: cond
 # key: cond
 # --
-cond (($1) $2)
-     (else ($0))
+cond (($0) )
+     (() )
