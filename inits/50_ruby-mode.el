@@ -7,7 +7,6 @@
 
 (with-eval-after-load 'ruby-mode
   (setq ruby-insert-encoding-magic-comment nil)
-  (setq ruby-deep-indent-paren-style nil)
   (defadvice ruby-indent-line (after unindent-closing-paren activate)
     (let ((column (current-column))
           indent offset)
@@ -23,7 +22,8 @@
         (indent-line-to indent)
         (when (> offset 0) (forward-char offset))))))
 
+;; rhtml
 (append-to-list 'auto-mode-alist
-                ("\\.eco$"    .rhtml-mode)
-                ("\\.jeco$"    .rhtml-mode)
-                ("\\.js.erb$"    .rhtml-mode))
+                ("\\.eco$" . rhtml-mode)
+                ("\\.jeco$" . rhtml-mode)
+                ("\\.js.erb$" . rhtml-mode))

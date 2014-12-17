@@ -1,10 +1,13 @@
-(add-hook-lambda 'ruby-mode-hook
-                 (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
-                 (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
-                 (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
-                 (define-key ruby-mode-map (kbd "s-r") 'chrome-reload)
-                 (define-key ruby-mode-map (kbd "C-M-f") 'chrome-next-tab)
-                 (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab))
+(defun my/browser-define-hook ()
+  (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
+  (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
+  (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
+  (define-key ruby-mode-map (kbd "s-r") 'chrome-reload)
+  (define-key ruby-mode-map (kbd "C-M-f") 'chrome-next-tab)
+  (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab)
+  (define-key ruby-mode-map (kbd "C-c r") 'rspec-on-iterm))
+
+(add-hook 'ruby-mode-hook 'my/browser-define-hook)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @for iTerm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31,7 +34,6 @@
    (format "bundle exec spring rspec %s:%s" buffer-file-name (line-number-at-pos))))
 
 (global-set-key (kbd "C-c d") 'cd-on-iterm)
-;; (define-key ruby-mode-map (kbd "C-c r") 'rspec-on-iterm)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @ForChrome ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
