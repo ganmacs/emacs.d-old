@@ -1,6 +1,4 @@
-(setq flycheck-check-syntax-automatically '(mode-enabled save))
-(add-hook 'python-mode-hook 'flycheck-mode)
-(add-hook 'ruby-mode-hook 'flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; flycheck-pos-tip
 (eval-after-load 'flycheck
