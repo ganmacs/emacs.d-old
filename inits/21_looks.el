@@ -38,6 +38,9 @@
 (add-hook-lambda 'scala-mode-hook
                  (highlight-indentation-current-column-mode))
 
+(add-hook-lambda 'tuareg-mode-hook
+                 (highlight-indentation-current-column-mode))
+
 (set-face-background 'highlight-indentation-current-column-face "#222")
 
 (highlight-indentation-current-column-mode)
@@ -58,6 +61,7 @@
 (add-hook 'js2-mode-hook 'idle-hook)
 (add-hook 'scala2-mode-hook 'idle-hook)
 (add-hook 'scheme-mode-hook 'idle-hook)
+(add-hook 'tuareg-mode-hook 'idle-hook)
 
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))

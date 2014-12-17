@@ -91,6 +91,7 @@
 (depends-on "js2-mode")
 (depends-on "coffee-mode")
 (depends-on "php-mode")
+(depends-on "tuareg")
 
 ;; shift
 (depends-on "ace-jump-mode")
