@@ -18,7 +18,7 @@
 (add-hook 'eshell-mode-hook 'my-eshell-mode-hook)
 
 (with-eval-after-load "eshell"
-  (setq ac-sources '(ac-source-pcomplete ac-source-dictionary))
+  ;; (setq ac-sources '(ac-source-complete ac-source-dictionary))
   ;; 補完時に大文字小文字を区別しない
   (setq eshell-cmpl-ignore-case t)
   ;; 確認なしでヒストリ保存
