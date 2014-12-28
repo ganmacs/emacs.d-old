@@ -104,9 +104,9 @@
 (depends-on "powerline")
 (depends-on "rainbow-mode")
 (depends-on "highlight-indentation")
-(depends-on "highlight-symbol")
 (depends-on "idle-highlight-mode")
 
+(depends-on "hl-anything")
 
 (depends-on "rotate")
 (depends-on "pager")

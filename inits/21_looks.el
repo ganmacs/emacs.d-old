@@ -70,10 +70,12 @@
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))
 
-;; ------------- highlight-symbol ----------------------
-(global-set-key (kbd "C-0") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-0") 'highlight-symbol-remove-all)
+;; ------------- hl-anything ----------------------
 
+(require 'hl-anything)
+(hl-highlight-mode 1)
+(global-set-key (kbd "C-0") 'hl-highlight-thingatpt-local)
+(global-set-key (kbd "M-0") 'hl-unhighlight-all-local)
 
 ;; ------------- rainbow-mode ----------------------
 (add-hook 'css-mode-hook 'rainbow-mode)
