@@ -28,6 +28,7 @@
 (depends-on "key-chord")
 (depends-on "smartrep")
 (depends-on "smartparens")
+(depends-on "emacs-surround" :git "https://github.com/ganmacs/emacs-surround.git")
 
 ;; app interface
 (depends-on "dash-at-point")
