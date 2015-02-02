@@ -31,6 +31,7 @@
 
 (push '("*cider-doc*") popwin:special-display-config)
 (push '("*cider-error*") popwin:special-display-config)
+(push '("*git now*") popwin:special-display-config)
 
 ;; (push '("*YaTeX-typesetting*" :noselect t) popwin:special-display-config)
 
