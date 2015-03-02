@@ -83,6 +83,7 @@
 
 ;; haskell
 (depends-on "haskell-mode")
+(depends-on "ghc")
 
 ;; markup
 (depends-on "web-mode")

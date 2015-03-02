@@ -66,6 +66,7 @@
 (add-hook 'scheme-mode-hook 'idle-hook)
 (add-hook 'tuareg-mode-hook 'idle-hook)
 (add-hook 'clojure-mode-hook 'idle-hook)
+(add-hook 'haskell-mode-hook 'idle-hook)
 
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))
