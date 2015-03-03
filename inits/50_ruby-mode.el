@@ -3,7 +3,8 @@
                 ("\\.thor$" . ruby-mode)
                 ("\\.rake$" . ruby-mode)
                 ("Guardfile$" . ruby-mode)
-                ("\\.env$" . ruby-mode))
+                ("\\.env$" . ruby-mode)
+                ("\\.cap$" . ruby-mode))
 
 (with-eval-after-load 'ruby-mode
   (setq ruby-insert-encoding-magic-comment nil)
