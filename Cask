@@ -109,6 +109,7 @@
 (depends-on "idle-highlight-mode")
 
 (depends-on "hl-anything")
+(depends-on "codic")
 
 (depends-on "rotate")
 (depends-on "pager")
