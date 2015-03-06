@@ -110,6 +110,8 @@
 
 (depends-on "hl-anything")
 (depends-on "codic")
+; find-for-filesの色が出なくなる(helm on popwin時 2015/1/23)
+(depends-on "hl-anything" :git "https://github.com/boyw165/hl-anything.git" :ref "26c455a")
 
 (depends-on "rotate")
 (depends-on "pager")
