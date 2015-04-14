@@ -104,12 +104,13 @@
 (define-key dired-mode-map (kbd "C-b") 'dired-up-directory)
 (define-key dired-mode-map (kbd "C-f") 'dired-open-in-accordance-with-situation)
 (define-key dired-mode-map (kbd "C-g") 'quit-window)
+(define-key dired-mode-map (kbd "SPC") 'my-dired-do-quicklook)
+(define-key dired-mode-map (kbd "C-o") 'dired-find-file-other-window)
+(define-key dired-mode-map (kbd "V") 'my-dired-view-marking-files)
+(define-key dired-mode-map (kbd "C-f") 'dired-do-find-marked-files)
 
-(add-hook-lambda 'dired-mode-hook
-                 (define-key dired-mode-map (kbd "SPC") 'my-dired-do-quicklook)
-                 (define-key dired-mode-map (kbd "c-o") (lambda () (interactive)
-                                                          (dired-display-file-n 2))))
-
-(add-hook-lambda 'dired-load-hook
-                 (dired-mode-map (kbd "V") 'my-dired-view-marking-files)
-                 (dired-mode-map (kbd "C-f") 'dired-do-find-marked-files))
+;; vim like key
+(define-key dired-mode-map (kbd "h") 'dired-up-directory)
+(define-key dired-mode-map (kbd "j") 'diredp-next-line)
+(define-key dired-mode-map (kbd "k") 'diredp-previous-line)
+(define-key dired-mode-map (kbd "l") 'dired-open-in-accordance-with-situation)
