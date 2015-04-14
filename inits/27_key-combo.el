@@ -131,6 +131,7 @@
     ("*"  . (key-combo-execute-original " * " " ** "))
     ("/"  . (key-combo-execute-original " / " "//"))
     ("-"  . (key-combo-execute-original " - " "-- "))
+    ("_"  . (key-combo-execute-original " -> "))
     (">" . (key-combo-execute-original " > " ">>"))
     ("<" . (key-combo-execute-original " < " "<<"))
     (":" . (key-combo-execute-original " :: " " : "))
@@ -142,6 +143,7 @@
     ("<=" . " <= ")
     ("<-" . " <- ")
     ("->" . " -> ")
+    (">>=" . ">>= ")
     ))
 
 
