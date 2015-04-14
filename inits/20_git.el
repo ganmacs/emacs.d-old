@@ -4,6 +4,7 @@
 
 ;; magit
 (require 'magit)
+(setq magit-last-seen-setup-instructions "1.4.0")
 (global-set-key (kbd "C-M-g") 'magit-status)
 
 (defun git-now ()
