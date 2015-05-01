@@ -41,6 +41,9 @@
 ;; いい感じにマーク
 (global-set-key (kbd "C-#") 'mark-sexp)
 
+;; 指定文字まで削除
+(global-set-key (kbd "C-z") 'zap-to-char)
+
 ;; ------------shift + ctrl-------------
 (global-set-key (kbd "C-S-f") 'next-space)
 (global-set-key (kbd "C-S-b") 'previous-space)
