@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: f
+# --
+func ($1) $2 {
+	$0
+}

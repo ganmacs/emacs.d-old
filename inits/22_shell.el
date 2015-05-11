@@ -1,5 +1,6 @@
 ;; -------------- exec-path-from-shell -----------------------
 (require 'exec-path-from-shell)
+(exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-initialize)
 
 ;; -------------- shell-switcher ---------------------

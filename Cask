@@ -78,6 +78,12 @@
 (depends-on "cider")
 (depends-on "ac-cider")
 
+;; go
+(depends-on "go-mode")
+(depends-on "go-autocomplete")
+(depends-on "go-eldoc")
+(depends-on "yasnippet-go")
+
 ;; scala
 (depends-on "scala-mode2")
 (depends-on "ensime")

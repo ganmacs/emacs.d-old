@@ -65,10 +65,16 @@
     enh-ruby-mode-hook
     c-mode-common-hook
     scala-mode-hook
-    )
-  )
+    go-mode-hook))
 
-
+(defvar kb-go
+  '(("+"  . (" + " "++" key-combo-execute-original))
+    ("-"  . (" - " "--" key-combo-execute-original))
+    (":="  . " := ")
+    (":" . (key-combo-execute-original " := "))
+    ("<-" . " <- ")
+    ("<" . (key-combo-execute-original " < " " << "))
+    ))
 
 (defvar kb-java
   '((","  . ", ")
@@ -349,6 +355,9 @@
   (key-combo-define-hook 'ensime-mode-hook
                          'kb-ensime-load
                          kb-ensime)
+  (key-combo-define-hook 'go-mode-hook
+                         'kb-go-load
+                         kb-go)
   )
 
 (my-key-combo-load)

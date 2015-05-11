@@ -44,6 +44,9 @@
 (add-hook-lambda 'clojure-mode-hook
                  (highlight-indentation-current-column-mode))
 
+(add-hook-lambda 'go-mode-hook
+                 (highlight-indentation-current-column-mode))
+
 (set-face-background 'highlight-indentation-current-column-face "#222")
 
 (highlight-indentation-current-column-mode)
@@ -66,6 +69,7 @@
 (add-hook 'scheme-mode-hook 'idle-hook)
 (add-hook 'tuareg-mode-hook 'idle-hook)
 (add-hook 'clojure-mode-hook 'idle-hook)
+(add-hook 'go-mode-hook 'idle-hook)
 (add-hook 'haskell-mode-hook 'idle-hook)
 
 (custom-set-faces
