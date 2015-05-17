@@ -63,7 +63,7 @@
 ;; git
 (depends-on "magit")
 (depends-on "git-gutter-fringe")
-(depends-on "emacs-github-open" :git "https://github.com/ganmacs/emacs-github-open")
+(depends-on "github-commit-open" :git "https://github.com/ganmacs/emacs-github-open")
 (depends-on "git-modes" :git "https://github.com/magit/git-modes.git")
 
 ;; ruby

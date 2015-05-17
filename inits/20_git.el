@@ -1,6 +1,6 @@
 ;; emacs-github-open
-(require 'emacs-github-open)
-(global-set-key (kbd "M-g o") 'emacs-github-open)
+(require 'github-commit-open)
+(global-set-key (kbd "M-g o") 'github-commit-open)
 
 ;; magit
 (require 'magit)
