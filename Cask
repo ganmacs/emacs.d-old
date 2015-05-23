@@ -67,11 +67,10 @@
 (depends-on "git-modes" :git "https://github.com/magit/git-modes.git")
 
 ;; ruby
-;; (depends-on "ruby-mode")
-;; (depends-on "robe-mode")
 (depends-on "rbenv")
 (depends-on "rhtml-mode")
 (depends-on "yaml-mode")
+(depends-on "slim-mode")
 
 ;; clojure
 (depends-on "clojure-mode")

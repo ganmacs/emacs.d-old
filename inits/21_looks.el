@@ -47,6 +47,9 @@
 (add-hook-lambda 'go-mode-hook
                  (highlight-indentation-current-column-mode))
 
+(add-hook-lambda 'slim-mode-hook
+                 (highlight-indentation-current-column-mode))
+
 (set-face-background 'highlight-indentation-current-column-face "#222")
 
 (highlight-indentation-current-column-mode)

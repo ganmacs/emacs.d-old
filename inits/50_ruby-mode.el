@@ -28,3 +28,6 @@
                 ("\\.eco$" . rhtml-mode)
                 ("\\.jeco$" . rhtml-mode)
                 )
+
+
+(require 'slim-mode)
