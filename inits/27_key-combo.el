@@ -65,7 +65,9 @@
     enh-ruby-mode-hook
     c-mode-common-hook
     scala-mode-hook
-    go-mode-hook))
+    go-mode-hook
+    elixir-mode-hook
+    ))
 
 (defvar kb-go
   '(("+"  . (" + " "++" key-combo-execute-original))
@@ -304,6 +306,22 @@
   )
 
 
+;; elixir ----------------------------
+(defvar kb-elixir
+  '(
+    ("+"  . (" + " " ++ "))
+    ("/"  . (" / " "//" key-combo-execute-original))
+    ("<" . (" < " "<<" key-combo-execute-original  ))
+    (">" . (" > " ">>" key-combo-execute-original))
+    ("|" . (" | " " || " key-combo-execute-original))
+    ("|>" . " |> ")
+    ("\\"  . (key-combo-execute-original " \\\\ "))
+    ("-"  . (" - " key-combo-execute-original))
+    ("->" . " -> ")
+    ("<-" . " <- ")
+    ("<>"  . " <> ")
+    ))
+
 (defun my-key-combo-load ()
   (interactive)
   (global-key-combo-mode t)
@@ -358,6 +376,9 @@
   (key-combo-define-hook 'go-mode-hook
                          'kb-go-load
                          kb-go)
+  (key-combo-define-hook 'elixir-mode-hook
+                         'kb-elixir-load
+                         kb-elixir)
   )
 
 (my-key-combo-load)

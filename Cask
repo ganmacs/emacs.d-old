@@ -91,6 +91,11 @@
 (depends-on "haskell-mode")
 (depends-on "ghc")
 
+;; elixir
+(depends-on "elixir-mode")
+(depends-on "elixir-yasnippets")
+(depends-on "alchemist")
+
 ;; markup
 (depends-on "web-mode")
 (depends-on "emmet-mode")

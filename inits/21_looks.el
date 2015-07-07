@@ -50,6 +50,9 @@
 (add-hook-lambda 'slim-mode-hook
                  (highlight-indentation-current-column-mode))
 
+(add-hook-lambda 'elixir-mode-hook
+                 (highlight-indentation-current-column-mode))
+
 (set-face-background 'highlight-indentation-current-column-face "#222")
 
 (highlight-indentation-current-column-mode)
@@ -74,6 +77,7 @@
 (add-hook 'clojure-mode-hook 'idle-hook)
 (add-hook 'go-mode-hook 'idle-hook)
 (add-hook 'haskell-mode-hook 'idle-hook)
+(add-hook 'elixir-mode-hook 'idle-hook)
 
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))
