@@ -4,7 +4,6 @@
 
 (require 'ocp-indent)
 
-(autoload 'merlin-mode "merlin" "Merlin mode" t)
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
