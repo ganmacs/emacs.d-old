@@ -14,6 +14,9 @@
 (loop for c from ?a to ?z do (add-keys-to-ace-jump-mode "A-C-" c 'word))
 (loop for c from ?! to ?~ do (add-keys-to-ace-jump-mode "A-C-" c 'word))
 
+;; avy
+(global-set-key (kbd "M-g l") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
 
 ;; point-undo
 (require 'point-undo)

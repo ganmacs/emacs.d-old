@@ -110,6 +110,7 @@
 ;; shift
 (depends-on "ace-jump-mode")
 (depends-on "point-undo")
+(depends-on "avy")
 
 ;; looks
 (depends-on "yascroll")
