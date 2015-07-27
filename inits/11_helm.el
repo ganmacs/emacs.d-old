@@ -2,6 +2,7 @@
 (require 'helm-files)
 
 (global-set-key (kbd "C-;") 'helm-for-files)
+(global-set-key (kbd "C-M-z") 'helm-resume)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-i") 'helm-imenu)
