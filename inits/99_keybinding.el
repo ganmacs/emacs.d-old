@@ -86,6 +86,11 @@
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
 
+;; register
+(global-set-key (kbd "s-S") 'point-to-register)
+
+(global-set-key (kbd "s-J") 'point-to-register)
+
 ;; 変更部分を可視化/不可視化のトグル
 (global-set-key (kbd "s-i") 'highlight-changes-visible-mode)
 
