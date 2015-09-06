@@ -46,10 +46,12 @@
 ;; ------- scss-mode ---------
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
-(with-eval-after-load 'scss-mode
-  (and
+(defun scss-custom ()
+  "scss-mode-hook"
    (set (make-local-variable 'css-indent-offset) 2)
-   (set (make-local-variable 'scss-compile-at-save) nil)))
+   (set (make-local-variable 'scss-compile-at-save) nil))
+
+(add-hook 'scss-mode-hook '(lambda() (scss-custom)))
 
 ;; ------- emmet-mode --------
 (add-hook 'web-mode-hook 'emmet-mode)
