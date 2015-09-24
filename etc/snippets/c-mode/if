@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: snippet -*-
-# name : my-if
+# name : if state
 # key: if
 # --
 if (${1:condition}) {
