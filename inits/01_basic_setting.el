@@ -1,3 +1,7 @@
+;;; 01_basic_setting.el --- basic configuration
+;;; Commentary:
+;;; Code:
+
 (require 'cl-lib)
 
 ;; 環境変数
@@ -25,15 +29,11 @@
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
 
-;; コンパイルし忘れないように
-
-;; yes or noをy or n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; 終了時にオートセーブファイル（#filename#）を消す
 (setq delete-auto-save-files t)
 
-;; オートセーブ間隔 :Default=30sec
+;; Default=30sec
 (setq auto-save-timeout 600)
 
 ;; 元ファイルをバックアップファイルにコピーしてから、新たな内容で上書きする
@@ -220,3 +220,5 @@
 (ad-activate 'font-lock-mode)
 (add-hook-lambda 'find-file-hooks
                  (if font-lock-mode nil (font-lock-mode t)))
+
+;;; 01_basic_setting.el ends here

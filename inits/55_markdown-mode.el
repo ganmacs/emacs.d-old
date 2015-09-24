@@ -1,4 +1,9 @@
+;;; 55_markdown-mode.el --- markdown mode configuration
+;;; Commentary:
+;;; Code:
+
 (defun marked-preview-file ()
+  "Open Marked.app ."
   (interactive)
   (shell-command
    (format "open -a Marked\\ 2.app %s"
@@ -13,3 +18,5 @@
 (defadvice delete-trailing-whitespace (around disable-in-markdown activate)
   (unless (eq major-mode 'markdown-mode)
     ad-do-it))
+
+;;; 55_markdown-mode.el ends here

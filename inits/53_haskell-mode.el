@@ -1,12 +1,9 @@
-;;; 53_haskell-mode.el --- haskell mode setting
-;;
-;;; Code:
+;;; 53_haskell-mode.el --- mode configuration
 ;;; Commentary:
-
-;; (add-to-list 'exec-path (concat (getenv "HOME") "/.cabal/bin"))
-;; (add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
+;;; Code:
 
 (defun my/haskell-mode-hook ()
+  "My haskell mode hook."
   (ghc-init)
   (setq flycheck-checker 'haskell-ghc)
   (add-to-list 'ac-sources 'ac-source-ghc-mod)
@@ -18,3 +15,5 @@
   )
 
 (add-hook 'haskell-mode-hook 'my/haskell-mode-hook)
+
+;;; 53_haskell-mode.el ends here

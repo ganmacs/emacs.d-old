@@ -1,3 +1,7 @@
+;;; 99_keybinding.el --- keybinding configuration
+;;; Commentary:
+;;; Code:
+
 (global-set-key (kbd "C-m") 'newline-and-indent)
 
 (global-set-key (kbd "C-.") 'other-window)
@@ -89,7 +93,7 @@
 ;; register
 (global-set-key (kbd "s-S") 'point-to-register)
 
-(global-set-key (kbd "s-J") 'point-to-register)
+(global-set-key (kbd "s-J") 'jump-to-register)
 
 ;; 変更部分を可視化/不可視化のトグル
 (global-set-key (kbd "s-i") 'highlight-changes-visible-mode)
@@ -299,3 +303,6 @@
           (goto-char (mark))
           (isearch-repeat-forward)))
     ad-do-it))
+
+
+;;; 99_keybinding.el ends here

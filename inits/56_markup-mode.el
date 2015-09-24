@@ -1,3 +1,7 @@
+;;; 56_markup-mode.el --- mode configuration
+;;; Commentary:
+;;; Code:
+
 ;; ------- web-mode ---------
 (add-to-list 'auto-mode-alist '("\\.html$"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp$"   . web-mode))
@@ -6,8 +10,7 @@
 (defun web-mode-hook ()
   (define-key web-mode-map (kbd "C-;") 'helm-for-files)
   (define-key web-mode-map (kbd "C-c c") 'web-mode-comment-or-uncomment)
-  (define-key web-mode-map (kbd "C-i") 'web-mode-buffer-indent)
-  )
+  (define-key web-mode-map (kbd "C-i") 'web-mode-buffer-indent))
 
 (add-hook 'web-mode-hook 'web-mode-hook)
 
@@ -40,16 +43,15 @@
   (setq web-mode-html-offset   2)
   (setq web-mode-css-offset    2)
   (setq web-mode-script-offset 2)
-  (setq web-mode-php-offset    2)
-  )
+  (setq web-mode-php-offset    2))
 
 ;; ------- scss-mode ---------
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
 (defun scss-custom ()
-  "scss-mode-hook"
-   (set (make-local-variable 'css-indent-offset) 2)
-   (set (make-local-variable 'scss-compile-at-save) nil))
+  "Scss-mode-hook"
+  (set (make-local-variable 'css-indent-offset) 2)
+  (set (make-local-variable 'scss-compile-at-save) nil))
 
 (add-hook 'scss-mode-hook '(lambda() (scss-custom)))
 
@@ -70,3 +72,5 @@
   (setq emmet-preview-default nil))
 
 (add-hook 'emmet-mode-hook 'my-emmet-hook)
+
+;;; 56_markup-mode.el ends here

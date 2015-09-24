@@ -1,17 +1,19 @@
-;; ------ elisp
+;;; 52_lisp-mode.el --- lisp mode configuration
+;;; Commentary:
+;;; Code:
 
+;; for elisp
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
-;; ------ clojure
+;; for clojure
 
 (defun my/cider-mode-hook ()
+  "My Clojure mode."
   (cider-turn-on-eldoc-mode)
   (ac-flyspell-workaround)
   (ac-cider-setup)
   (define-key clojure-mode-map (kbd "C-M-;") 'clojure-toggle-keyword-string)
-  (define-key clojure-mode-map (kbd "C-:") nil)
-  )
-  ;; (rainbow-delimiters-mode))
+  (define-key clojure-mode-map (kbd "C-:") nil))
 
 (add-hook 'cider-mode-hook 'my/cider-mode-hook)
 
@@ -42,3 +44,5 @@
     (run-scheme scheme-program-name)))
 
 (define-key global-map "\C-cG" 'scheme-other-windows)
+
+;;; 52_lisp-mode.el ends here

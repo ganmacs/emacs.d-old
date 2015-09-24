@@ -1,3 +1,7 @@
+;;; 13_auto-complete.el --- auto complete configuration
+;;; Commentary:
+;;; Code:
+
 (require 'auto-complete)
 (require 'auto-complete-config)
 
@@ -9,8 +13,7 @@
  '(ac-use-menu-map t)
  '(ac-ignore-case nil))
 
-
-(let ((bgc "#333") (color "#aaa"))
+(let ((bgc "#333") (color "#729fcf"))
   ;; complete menu
   (set-face-foreground 'ac-candidate-face color)
   (set-face-background 'ac-candidate-face bgc)
@@ -40,3 +43,6 @@
                 eshell-mode
                 cider-mode
                 markdown-mode)
+
+
+;;; 13_auto-complete.el ends here

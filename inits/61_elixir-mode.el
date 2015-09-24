@@ -1,3 +1,7 @@
+;;; 61_elixir-mode.el --- elixir mode configuration
+;;; Commentary:
+;;; Code:
+
 (require 'alchemist)
 (defun my-elixir-mode-hook ()
   (company-mode 1)
@@ -17,3 +21,5 @@
   )
 
 (add-hook 'elixir-mode-hook 'my-elixir-mode-hook)
+
+;;; 61_elixir-mode.el ends here

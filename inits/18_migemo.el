@@ -1,3 +1,7 @@
+;;; 18_migemo.el --- migemo mode configuration
+;;; Commentary:
+;;; Code:
+
 (require 'migemo)
 (setq migemo-command "/usr/local/bin/cmigemo")
 (setq migemo-options '("-q" "--emacs"))
@@ -10,3 +14,5 @@
 
 ;; do not ask to kill 'migemo' when shut down 'Emacs'
 (set-process-query-on-exit-flag (get-process "migemo") nil)
+
+;;; 18_migemo.el ends here

@@ -1,3 +1,7 @@
+;;; 50_ruby-mode.el --- mode configuration
+;;; Commentary:
+;;; Code:
+
 (append-to-list 'auto-mode-alist
                 ("Gemfile" . ruby-mode)
                 ("\\.thor$" . ruby-mode)
@@ -26,8 +30,8 @@
 ;; rhtml
 (append-to-list 'auto-mode-alist
                 ("\\.eco$" . rhtml-mode)
-                ("\\.jeco$" . rhtml-mode)
-                )
-
+                ("\\.jeco$" . rhtml-mode))
 
 (require 'slim-mode)
+
+;;; 50_ruby-mode.el ends here

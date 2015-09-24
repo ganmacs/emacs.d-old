@@ -1,3 +1,7 @@
+;;; cocoa-emacs-keybinding.el --- configuration
+;;; Commentary:
+;;; Code:
+
 (defun my/browser-define-hook ()
   (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
   (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
@@ -12,28 +16,27 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @for iTerm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun execute-on-iterm (command)
-  (interactive "MCommand: ")
-  (do-applescript
-   (format "tell application \"iTerm\"
-              activate
-              tell current session of current terminal
-                write text \"%s\"
-              end tell
-            end tell"
-           command)))
-
 (defun cd-on-iterm ()
   (interactive)
-  (execute-on-iterm
-   (format "cd %s" default-directory)))
+  (util/execute-on-iterm
+   (format "cd %s" (or (util/git-directory) default-directory))))
+(global-set-key (kbd "C-c d") 'cd-on-iterm)
 
 (defun rspec-on-iterm ()
   (interactive)
-  (execute-on-iterm
+  (util/execute-on-iterm
    (format "bundle exec spring rspec %s:%s" buffer-file-name (line-number-at-pos))))
 
-(global-set-key (kbd "C-c d") 'cd-on-iterm)
+
+(defun search-word-in-alc ()
+  (interactive)
+  (let* ((cmd "open \"%s\"")
+         (url (format "http://eow.alc.co.jp/search?q=%s"
+                      (or (util/marked-string) (read-shell-command "word: ")))))
+    (shell-command-to-string
+     (format cmd url))))
+
+(global-set-key (kbd "s-E") 'search-word-in-alc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @ForChrome ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -211,3 +214,5 @@ end tell'"))
 ;; (defun safari-history-back ()
 ;;   (interactive)
 ;;   (safari-do-javascript "history.back();"))
+
+;;; cocoa-emacs-keybinding.el ends here

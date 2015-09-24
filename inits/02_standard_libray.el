@@ -1,3 +1,7 @@
+;;; 02_standard_libray.el --- standard library configuration
+;;; Commentary:
+;;; Code:
+
 ;; ----------------- @tramp ------------------------
 (require 'tramp)
 (setq tramp-default-method "ssh")
@@ -199,3 +203,5 @@
   (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
   (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region))
 (add-hook 'yatex-mode-hook 'my-yatex-mode-hook)
+
+;;; 02_standard_libray.el ends here

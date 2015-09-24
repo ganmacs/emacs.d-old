@@ -1,3 +1,7 @@
+;;; 16_region.el --- region configuration
+;;; Commentary:
+;;; Code:
+
 ;; ---------- expand-region
 (global-set-key (kbd "C-@") 'er/expand-region)
 (global-set-key (kbd "C-M-@") 'er/contract-region) ;; リージョンを狭める
@@ -14,3 +18,5 @@
 (drag-stuff-global-mode t)
 (global-set-key (kbd "s-.") 'drag-stuff-right)
 (global-set-key (kbd "s-,") 'drag-stuff-left)
+
+;;; 16_region.el ends here

@@ -1,3 +1,7 @@
+;;; 27_key-combo.el --- key combo configuration
+;;; Commentary:
+;;; Code:
+
 (require 'key-combo)
 
 ;; Lisp-mode-setting --------------------------------------------------
@@ -373,3 +377,5 @@
   )
 
 (my-key-combo-load)
+
+;;; 27_key-combo.el ends here

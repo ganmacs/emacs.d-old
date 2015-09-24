@@ -1,3 +1,7 @@
+;;; 15_smartparens.el --- smartparens mode configuration
+;;; Commentary:
+;;; Code:
+
 (require 'smartparens-config)
 
 (smartparens-global-mode t)
@@ -24,3 +28,5 @@
 
 (eval-after-load "rhtml-mode"
   '(progn (require 'smartparens-html)))
+
+;;; 15_smartparens.el ends here

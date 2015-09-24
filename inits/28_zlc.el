@@ -1,3 +1,7 @@
+;;; 28_zlc.el --- zlc mode configuration
+;;; Commentary:
+;;; Code:
+
 (zlc-mode t)
 (let ((map minibuffer-local-map))
   (define-key map (kbd "C-n")     'zlc-select-next-vertical)
@@ -8,3 +12,5 @@
   (define-key map (kbd "<left>")  'zlc-select-previous)
   (define-key map (kbd "C-c") 'zlc-reset)
   (setq zlc-select-completion-immediately nil))
+
+;;; 28_zlc.el ends here

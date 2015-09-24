@@ -1,3 +1,7 @@
+;;; 29_popwin.el --- popwin configuration
+;;; Commentary:
+;;; Code:
+
 (require 'popwin)
 
 (setq display-buffer-function 'popwin:display-buffer)
@@ -40,3 +44,5 @@
                                    (interactive)
                                    (popwin:find-file (dired-get-file-for-visit))))
 ;; (setq popwin:close-popup-window-timer-interval 0.05)
+
+;;; 29_popwin.el ends here

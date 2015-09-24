@@ -1,3 +1,7 @@
+;;; 11_helm.el --- helm configuration
+;;; Commentary:
+;;; Code:
+
 (require 'helm-config)
 (require 'helm-files)
 
@@ -69,3 +73,5 @@
 (setq recentf-auto-cleanup 10)
 (setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
 (recentf-mode 1)
+
+;;; 11_helm.el ends here

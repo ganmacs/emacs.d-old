@@ -1,62 +1,36 @@
+;;; 21_looks.el --- looks configuration
+;;; Commentary:
+;;; Code:
+
+(defmacro add-hooks-lambda (hooks &rest body)
+  (let ((hook (cl-gensym)))
+    `(dolist (,hook ,hooks)
+       (add-hook ,hook (lambda () ,@body)))))
+
 ;; highlight-indentation
 (require 'highlight-indentation)
-;; (autoload 'highlight-indentation)
 
-(add-hook-lambda 'ruby-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'coffee-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'js2-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'rhtml-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'enh-ruby-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'clojure-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'java-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'python-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'c-mode-common-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'scheme-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'haskell-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'scala-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'tuareg-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'clojure-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'go-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'slim-mode-hook
-                 (highlight-indentation-current-column-mode))
-
-(add-hook-lambda 'elixir-mode-hook
-                 (highlight-indentation-current-column-mode))
+(add-hooks-lambda '(ruby-mode-hook
+                    coffee-mode-hook
+                    js2-mode-hook
+                    rhtml-mode-hook
+                    clojure-mode-hook
+                    java-mode-hook
+                    python-mode-hook
+                    scheme-mode-hook
+                    haskell-mode-hook
+                    scala-mode-hook
+                    tuareg-mode-hook
+                    go-mode-hook
+                    slim-mode-hook
+                    elixir-mode-hook
+                    c-mode-hook
+                    cc-mode-hook
+                    sh-mode-hook
+                    )
+                  (highlight-indentation-current-column-mode))
 
 (set-face-background 'highlight-indentation-current-column-face "#222")
-
-(highlight-indentation-current-column-mode)
-
 
 ;; ------------- yascroll ----------------------
 
@@ -67,17 +41,23 @@
  '(yascroll:thumb-fringe ((t (:background "#777" :foreground "#777")))))
 
 ;; ------------- idle-highlight-mode ----------------------
-(defun idle-hook () (idle-highlight-mode t))
-(add-hook 'emacs-lisp-mode-hook 'idle-hook)
-(add-hook 'ruby-mode-hook 'idle-hook)
-(add-hook 'js2-mode-hook 'idle-hook)
-(add-hook 'scala2-mode-hook 'idle-hook)
-(add-hook 'scheme-mode-hook 'idle-hook)
-(add-hook 'tuareg-mode-hook 'idle-hook)
-(add-hook 'clojure-mode-hook 'idle-hook)
-(add-hook 'go-mode-hook 'idle-hook)
-(add-hook 'haskell-mode-hook 'idle-hook)
-(add-hook 'elixir-mode-hook 'idle-hook)
+
+(add-hooks-lambda '(emacs-lisp-mode-hook
+                    ruby-mode-hook
+                    js2-mode-hook
+                    scala2-mode-hook
+                    scheme-mode-hook
+                    tuareg-mode-hook
+                    clojure-mode-hook
+                    go-mode-hook
+                    haskell-mode-hook
+                    elixir-mode-hook
+                    scala-mode-hook
+                    c-mode-hook
+                    cc-mode-hook
+                    sh-mode-hook
+                    )
+                  (idle-highlight-mode t))
 
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))
@@ -101,7 +81,7 @@
 (hlinum-activate)
 (custom-set-faces
  '(linum-highlight-face ((t (:foreground "black"
-                             :background "#fce94f")))))
+                                         :background "#fce94f")))))
 
 ;; powerline
 (require 'powerline)
@@ -185,3 +165,5 @@
                              (powerline-fill face1 (powerline-width rhs))
                              (powerline-render rhs)))))))
 (my-powerline-theme)
+
+;;; 21_looks.el ends here

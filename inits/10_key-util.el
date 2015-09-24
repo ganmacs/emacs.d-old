@@ -1,3 +1,7 @@
+;;; 10_key-util.el --- key utility
+;;; Commentary:
+;;; Code:
+
 ;; smartrep
 (require 'smartrep)
 (global-unset-key (kbd "C-:"))
@@ -29,9 +33,9 @@
 (key-chord-define-global "PP" 'backward-list)
 (setq key-chord-two-keys-delay 0.05)
 
-
-
 ;; emacs-surrround
 (require 'emacs-surround)
 (global-set-key (kbd "s-w") 'emacs-surround)
 (add-to-list 'emacs-surround-alist '("}" . ("{ " . " }")))
+
+;;; 10_key-util.el ends here
