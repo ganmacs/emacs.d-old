@@ -128,3 +128,5 @@
 (depends-on "rotate")
 (depends-on "pager")
 (depends-on "goto-chg")
+(depends-on "evil")
+(depends-on "emoji-cheat-sheet-plus")
