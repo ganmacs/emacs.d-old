@@ -203,12 +203,12 @@
 
 ;; マウススクロール調整
 (mouse-wheel-mode)
-(global-set-key-lambda [wheel-up] (scroll-down 1))
-(global-set-key-lambda [wheel-down] (scroll-up 1))
-(global-set-key-lambda [double-wheel-up] (scroll-down 1))
-(global-set-key-lambda [double-wheel-down] (scroll-up 1))
-(global-set-key-lambda [triple-wheel-up] (scroll-down 2))
-(global-set-key-lambda [triple-wheel-down] (scroll-up 2))
+(util/global-set-key-lambda [wheel-up] (scroll-down 1))
+(util/global-set-key-lambda [wheel-down] (scroll-up 1))
+(util/global-set-key-lambda [double-wheel-up] (scroll-down 1))
+(util/global-set-key-lambda [double-wheel-down] (scroll-up 1))
+(util/global-set-key-lambda [triple-wheel-up] (scroll-down 2))
+(util/global-set-key-lambda [triple-wheel-down] (scroll-up 2))
 
 (defface my-face-b-1 '((t (:background "DeepPink"))) nil)
 (defvar my-face-b-1 'my-face-b-1)
@@ -218,7 +218,7 @@
    '(("　" 0 my-face-b-1 append))))
 (ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 (ad-activate 'font-lock-mode)
-(add-hook-lambda 'find-file-hooks
+(util/add-hook-lambda 'find-file-hooks
                  (if font-lock-mode nil (font-lock-mode t)))
 
 ;;; 01_basic_setting.el ends here

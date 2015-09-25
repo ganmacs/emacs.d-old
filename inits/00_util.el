@@ -2,17 +2,22 @@
 ;;; Commentary:
 ;;; Code:
 
-(defmacro append-to-list (mode-list &rest body)
+(defmacro util/append-to-list (mode-list &rest body)
   "add-to-listに複数指定する"
   (let ((lst (cl-gensym)))
     `(dolist (,lst ',body)
        (add-to-list ,mode-list ,lst))))
 
-(defmacro add-hook-lambda (hook &rest body)
+(defmacro util/add-hook-lambda (hook &rest body)
   "add-hookのlambdaをなくす"
   `(add-hook ,hook (lambda () ,@body)))
 
-(defmacro global-set-key-lambda (keybind &rest body)
+(defmacro util/add-hooks-lambda (hooks &rest body)
+  (let ((hook (cl-gensym)))
+    `(dolist (,hook ,hooks)
+       (add-hook ,hook (lambda () ,@body)))))
+
+(defmacro util/global-set-key-lambda (keybind &rest body)
   "gobal-set-keyに関数を渡すときlambdaをなくす"
   `(global-set-key ,keybind '(lambda () (interactive) ,@body)))
 
@@ -56,7 +61,5 @@
               end tell
             end tell"
            command)))
-
-
 
 ;;; 00_util.el ends here

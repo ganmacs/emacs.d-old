@@ -2,33 +2,28 @@
 ;;; Commentary:
 ;;; Code:
 
-(defmacro add-hooks-lambda (hooks &rest body)
-  (let ((hook (cl-gensym)))
-    `(dolist (,hook ,hooks)
-       (add-hook ,hook (lambda () ,@body)))))
-
 ;; highlight-indentation
 (require 'highlight-indentation)
 
-(add-hooks-lambda '(ruby-mode-hook
-                    coffee-mode-hook
-                    js2-mode-hook
-                    rhtml-mode-hook
-                    clojure-mode-hook
-                    java-mode-hook
-                    python-mode-hook
-                    scheme-mode-hook
-                    haskell-mode-hook
-                    scala-mode-hook
-                    tuareg-mode-hook
-                    go-mode-hook
-                    slim-mode-hook
-                    elixir-mode-hook
-                    c-mode-hook
-                    cc-mode-hook
-                    sh-mode-hook
-                    )
-                  (highlight-indentation-current-column-mode))
+(util/add-hooks-lambda
+ '(ruby-mode-hook
+   coffee-mode-hook
+   js2-mode-hook
+   rhtml-mode-hook
+   clojure-mode-hook
+   java-mode-hook
+   python-mode-hook
+   scheme-mode-hook
+   haskell-mode-hook
+   scala-mode-hook
+   tuareg-mode-hook
+   go-mode-hook
+   slim-mode-hook
+   elixir-mode-hook
+   c-mode-hook
+   cc-mode-hook
+   sh-mode-hook)
+ (highlight-indentation-current-column-mode))
 
 (set-face-background 'highlight-indentation-current-column-face "#222")
 
@@ -42,22 +37,22 @@
 
 ;; ------------- idle-highlight-mode ----------------------
 
-(add-hooks-lambda '(emacs-lisp-mode-hook
-                    ruby-mode-hook
-                    js2-mode-hook
-                    scala2-mode-hook
-                    scheme-mode-hook
-                    tuareg-mode-hook
-                    clojure-mode-hook
-                    go-mode-hook
-                    haskell-mode-hook
-                    elixir-mode-hook
-                    scala-mode-hook
-                    c-mode-hook
-                    cc-mode-hook
-                    sh-mode-hook
-                    )
-                  (idle-highlight-mode t))
+(util/add-hooks-lambda
+ '(emacs-lisp-mode-hook
+   ruby-mode-hook
+   js2-mode-hook
+   scala2-mode-hook
+   scheme-mode-hook
+   tuareg-mode-hook
+   clojure-mode-hook
+   go-mode-hook
+   haskell-mode-hook
+   elixir-mode-hook
+   scala-mode-hook
+   c-mode-hook
+   cc-mode-hook
+   sh-mode-hook)
+ (idle-highlight-mode t))
 
 (custom-set-faces
  '(idle-highlight ((t (:underline t)))))
@@ -74,7 +69,6 @@
 (add-hook 'scss-mode-hook 'rainbow-mode)
 (add-hook 'html-mode-hook 'rainbow-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
-
 
 ;; hlinum
 (require 'hlinum)

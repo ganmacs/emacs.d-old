@@ -16,7 +16,7 @@
 
 (global-set-key (kbd "C-x C-h") 'help-command)
 
-(global-set-key-lambda (kbd "C-x o") (other-window -1))
+(util/global-set-key-lambda (kbd "C-x o") (other-window -1))
 
 ;; タブ文字、全角空白、文末の空白の色付け
 (global-set-key (kbd "C-c w") 'global-whitespace-mode)

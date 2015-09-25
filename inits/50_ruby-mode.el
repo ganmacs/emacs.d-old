@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(append-to-list 'auto-mode-alist
+(util/append-to-list 'auto-mode-alist
                 ("Gemfile" . ruby-mode)
                 ("\\.thor$" . ruby-mode)
                 ("\\.rake$" . ruby-mode)
@@ -28,7 +28,7 @@
         (when (> offset 0) (forward-char offset))))))
 
 ;; rhtml
-(append-to-list 'auto-mode-alist
+(util/append-to-list 'auto-mode-alist
                 ("\\.eco$" . rhtml-mode)
                 ("\\.jeco$" . rhtml-mode))
 

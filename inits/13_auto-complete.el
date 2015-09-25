@@ -37,7 +37,7 @@
 (define-key ac-menu-map "\C-p" 'ac-previous)
 (define-key ac-mode-map (kbd "M-/") 'auto-complete)
 
-(append-to-list 'ac-modes
+(util/append-to-list 'ac-modes
                 html-mode
                 haml-mode
                 eshell-mode

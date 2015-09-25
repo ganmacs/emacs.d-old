@@ -17,8 +17,7 @@
   ;; 1個目を自動的に補完
   (setq company-auto-expand t)
   ;; 複数補完を出す前に待つ秒数？
-  (setq company-idle-delay nil)
-  )
+  (setq company-idle-delay nil))
 
 (add-hook 'elixir-mode-hook 'my-elixir-mode-hook)
 
