@@ -120,34 +120,36 @@
 (define-key dired-mode-map (kbd "k") 'diredp-previous-line)
 (define-key dired-mode-map (kbd "l") 'dired-open-in-accordance-with-situation)
 
-(setq dired-open-whitelist '("c" "coffee" "clj" "el" "ex" "exs" "go" "h" "hs" "html" "js" "ml" "md" "rb" "yml" "scala" "slim" "scss"))
+(setq dired-open-whitelist '("c" "coffee" "clj" "el"
+                             "ex" "exs" "go" "h" "hs"
+                             "html" "js" "ml" "md" "rb"
+                             "yml" "scala" "slim" "scss"))
 
-(defun dired-binary-p ()
-  (let ((cmd (format "nkf -g %s" (dired-filename-at-point))))
-    (string= "BINARY"
-             (replace-regexp-in-string "[\n\r]" "" (shell-command-to-string cmd)))))
+(defun dired/binary? ()
+  (let ((cmd (format "nkf -g %s" (dired/filename-at-point))))
+    (string= "BINARY" (util/chomp (shell-command-to-string cmd)))))
+
+(defun dired/filename-at-point ()
+  (car (dired-get-marked-files 'no-dir)))
+
+(defun dired/directory? ()
+   (file-directory-p (car (dired-get-marked-files))))
+
+(defun dired/include-whitelist? (filename whitelist)
+  (if whitelist
+      (or (util/same-ext? filename (car whitelist))
+          (dired/include-whitelist? filename (cdr whitelist)))))
 
 (defun dired-file-open-or-not ()
+  "File open if file type is directory or file exntion is in whitelist or file is not binary."
   (interactive)
-  (let* ((ext-lst dired-open-whitelist)
-         (filename (dired-filename-at-point))
-         (open-p (include-in-blacklist-p filename ext-lst)))
-    (if (or open-p (dired-binary-p))
-        (if (yes-or-no-p (format "Do you really open? %s" filename))
-            (dired-open-in-accordance-with-situation))
-      (dired-open-in-accordance-with-situation))))
-
-(defun include-in-blacklist-p (filename blacklist)
-  (if blacklist
-      (or (same-ext-p filename (car blacklist))
-          (include-in-blacklist-p filename (cdr blacklist)))))
-
-(defun same-ext-p (file-path ext)
-  (let ((file-ext (file-name-extension file-path)))
-    (if file-ext
-        (string= (downcase file-ext) ext))))
-
-(defun dired-filename-at-point ()
-  (car (dired-get-marked-files 'no-dir)))
+  (let ((ext-lst dired-open-whitelist)
+        (filename (dired/filename-at-point)))
+    (if (or (dired/directory?)
+            (dired/include-whitelist? filename ext-lst)
+            (not (dired/binary?)))
+        (dired-open-in-accordance-with-situation)
+      (if (yes-or-no-p (format "Do you really open? %s" filename))
+          (dired-open-in-accordance-with-situation)))))
 
 ;;; 12_dired.el ends here

@@ -37,6 +37,12 @@
   (when (use-region-p)
     (buffer-substring-no-properties (region-beginning) (region-end))))
 
+(defun util/same-ext? (file-path ext)
+  "Check same exntion or not."
+  (let ((file-ext (file-name-extension file-path)))
+    (if file-ext
+        (string= (downcase file-ext) ext))))
+
 ;; for osx utility functions
 
 (defun util/execute-on-iterm (command)
