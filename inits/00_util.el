@@ -48,6 +48,10 @@
     (if file-ext
         (string= (downcase file-ext) ext))))
 
+(defun util/alphabet? (c)
+  "Chech c is a-z or not"
+  (or (<= ?a c) (>= ?z c)))
+
 ;; for osx utility functions
 
 (defun util/execute-on-iterm (command)

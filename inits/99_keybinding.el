@@ -170,13 +170,18 @@
     (unless (member (buffer-name) '("*scratch*" "*Messages*"))
       (kill-buffer buf))))
 
-(defun vimlike-f (char)
-  (when (= (char-after (point)) char)
-    (forward-char))
-  (search-forward (char-to-string char) (point-at-eol) nil 1)
-  (backward-char))
+(defun forward-to-char (char)
+  "Vim like f. Forward until CHAR will appear."
+  (let ((point-char (char-after (point))))
+    (when (or (= point-char char)
+              (and (util/alphabet? char)
+                   (= point-char (upcase-initials char))))
+      (forward-char))
+    (search-forward (char-to-string char) (point-at-eol) nil 1)
+    (backward-char)))
 
-(defun vimlike-F (char)
+(defun backward-to-char (char)
+  "Vim liken F. Backword until CHAR will appear."
   (search-backward (char-to-string char) (point-at-bol) nil 1))
 
 (defun add-keys-to-vim-likef (prefix c &optional mode)
@@ -185,8 +190,8 @@
     `(lambda ()
        (interactive)
        (funcall (if (eq ',mode 'word)
-                    #'vimlike-F
-                  #'vimlike-f) ,c))))
+                    #'backward-to-char
+                  #'forward-to-char) ,c))))
 
 (cl-loop for c from ?0 to ?9 do (add-keys-to-vim-likef "H-" c))
 (cl-loop for c from ?a to ?z do (add-keys-to-vim-likef "H-" c))
@@ -250,11 +255,11 @@
 
 ;; 文頭いってから改行
 (defun begin-line-indent ()
-   (interactive)
-   (beginning-of-line)
-   (newline-and-indent)
-   (previous-line)
-   (indent-for-tab-command))
+  (interactive)
+  (beginning-of-line)
+  (newline-and-indent)
+  (previous-line)
+  (indent-for-tab-command))
 
 ;; 一つ前のC-t
 (defun previous-transpose-char ()
@@ -284,7 +289,7 @@
   (interactive (list (point) (mark)))
   (if (and (called-interactively-p 'any) (not mark-active))
       (copy-whole-line)
-      ad-do-it))
+    ad-do-it))
 
 (defadvice dired-copy-filename-as-kill (before four-prefix activate)
   (interactive "P")
