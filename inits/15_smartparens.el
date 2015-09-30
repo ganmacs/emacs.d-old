@@ -4,9 +4,6 @@
 
 (require 'smartparens-config)
 
-(smartparens-global-mode t)
-(show-smartparens-global-mode t)
-
 (sp-pair "(" ")" :wrap "C-(")
 (global-set-key (kbd "C-S-k") 'sp-kill-hybrid-sexp)
 (global-set-key (kbd "s-T") 'sp-transpose-hybrid-sexp)
@@ -20,13 +17,18 @@
  '(sp-pair-overlay-face ((t (:inherit default))))
  '(sp-show-pair-match-face ((t (:background "black" :foreground "green" :weight semi-bold)))))
 
-(eval-after-load "ruby-mode"
-  '(progn (require 'smartparens-ruby)))
+(custom-set-variables
+ '(smartparens-global-mode t)
+ '(show-smartparens-global-mode t))
 
-(eval-after-load "web-mode"
-  '(progn (require 'smartparens-html)))
 
-(eval-after-load "rhtml-mode"
-  '(progn (require 'smartparens-html)))
+(with-eval-after-load "ruby-mode"
+  (require 'smartparens-ruby))
+
+(with-eval-after-load "web-mode"
+  (require 'smartparens-html))
+
+(with-eval-after-load "rhtml-mode"
+  (require 'smartparens-html))
 
 ;;; 15_smartparens.el ends here

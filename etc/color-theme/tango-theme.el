@@ -1,5 +1,8 @@
-(deftheme tango
-  "tango color theme")
+;;; tango-theme.el --- My awesome color theme
+;;; Commentary:
+;;; Code:
+
+(deftheme tango "tango color theme")
 
 (custom-theme-set-faces
  'tango
@@ -47,3 +50,5 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'tango)
+
+;;; tango-theme.el ends here

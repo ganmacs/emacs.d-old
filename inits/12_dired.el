@@ -27,26 +27,24 @@
   (define-key dired-mode-map (kbd "k") 'diredp-previous-line)
   (define-key dired-mode-map (kbd "l") 'dired-file-open-or-not)
 
-  (require 'dired-isearch+)
   (define-key dired-mode-map (kbd "s") 'dired-isearch+))
 
 (defun my/dired-mode-hook ()
   "My dired mode hook."
+  (setq dired-isearch+-return "\C-f")
   ;; for sorting by extensions mac
   (when (eq system-type 'darwin)
     (require 'ls-lisp)
-    (setq ls-lisp-use-insert-directory-program nil))
-
-  (setq ls-lisp-dirs-first t)
-  (setq dired-recursive-copies 'always)
-  (setq dired-recursive-deletes 'always)
-  (setq dired-isearch+-return "\C-f"))
+    (setq ls-lisp-use-insert-directory-program nil)))
 
 (add-hook 'dired-mode-hook 'my/dired-mode-hook)
 
 (custom-set-variables
  '(delete-by-moving-to-trash t)
- '(trash-directory "~/.Trash"))
+ '(trash-directory "~/.Trash")
+ '(ls-lisp-dirs-first t)
+ '(dired-recursive-copies 'always)
+ '(dired-recursive-deletes 'always))
 
 (defun dired/do-quicklook ()
   "In dired, preview with Quick Look."

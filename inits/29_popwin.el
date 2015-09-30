@@ -3,46 +3,17 @@
 ;;; Code:
 
 (require 'popwin)
+(popwin-mode 1)
 
-(setq display-buffer-function 'popwin:display-buffer)
-
-(push '("^\*helm .+\*$" :regexp t :width 0.4 :position right) popwin:special-display-config)
-(push '("^\*helm-.+\*$" :regexp t :width 0.4 :position right) popwin:special-display-config)
 (push '("^\*Helm .+\*$" :regexp t :width 0.4 :position right) popwin:special-display-config)
-(push '("^\*emacs-git-grep*$" :regexp t :width 0.4 :position right) popwin:special-display-config)
+(push '("^\*helm .+\*$" :regexp t :width 0.4 :position right) popwin:special-display-config)
 (push '("^\*helm for files.+\*$" :regexp t :height 0.5) popwin:special-display-config)
-
-;; M-!
-(push "*Shell Command Output*" popwin:special-display-config)
-
-;; M-x compile
-(push '(compilation-mode :noselect t) popwin:special-display-config)
-
-;; undo-tree
-(push '(" *undo-tree*" :width 0.35 :position right) popwin:special-display-config)
-
-;; direx (when user direx)
-(push '(direx:direx-mode :position left :width 25 :dedicated t)
-      popwin:special-display-config)
-(global-set-key (kbd "C-x C-n") 'direx:jump-to-directory-other-window)
-
-;; M-x dired-jump-other-window
-(push '(dired-mode :position top) popwin:special-display-config)
-
+(push '(" *undo-tree*" :width 0.3 :position right) popwin:special-display-config)
 (push '("*quickrun*") popwin:special-display-config)
-
-(push '("*Moccur*") popwin:special-display-config)
-
 (push '("*cider-doc*") popwin:special-display-config)
 (push '("*cider-error*") popwin:special-display-config)
-(push '("*git now*") popwin:special-display-config)
 
+;; (require 'popwin-yatex)
 ;; (push '("*YaTeX-typesetting*" :noselect t) popwin:special-display-config)
-
-(define-key global-map (kbd "C-x p") 'popwin:display-last-buffer)
-(define-key dired-mode-map "o" #'(lambda ()
-                                   (interactive)
-                                   (popwin:find-file (dired-get-file-for-visit))))
-;; (setq popwin:close-popup-window-timer-interval 0.05)
 
 ;;; 29_popwin.el ends here

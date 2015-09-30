@@ -39,6 +39,7 @@
  '(helm-ag-thing-at-point 'symbol))
 
 ;; git-grep
+(require 'emacs-git-grep)
 (global-set-key (kbd "M-g g") 'emacs-git-grep)
 
 ;; helm-ls-git

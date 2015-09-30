@@ -44,5 +44,4 @@
                      cider-mode
                      markdown-mode)
 
-
 ;;; 13_auto-complete.el ends here

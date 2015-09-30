@@ -43,19 +43,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @ForChrome ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-M-f") 'chrome-next-tab)
 (global-set-key [C-tab] 'chrome-next-tab)
-(global-set-key (kbd "C-M-b") 'chrome-previous-tab)
 (global-set-key [C-S-tab] 'chrome-previous-tab)
-
-(global-set-key (kbd "C-M-r") 'chrome-reload)
 (global-set-key (kbd "s-r") 'chrome-reload)
 (global-set-key (kbd "C-M-n") 'chrome-scroll-down)
-(global-set-key [s-down] 'chrome-scroll-down)
 (global-set-key (kbd "C-M-p") 'chrome-scroll-up)
-(global-set-key [s-up] 'chrome-scroll-up)
-(define-key dired-mode-map (kbd "C-M-b") 'chrome-previous-tab)
-
 
 (defun chrome-reload ()
   "Reload tab in chrome."

@@ -2,9 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(yas-global-mode 1)
-(with-eval-after-load 'yasnippet
-  (setq-default yas-snippet-dirs (concat user-emacs-directory "etc/snippets")
-                yas-prompt-functions '(helm-editutil-yas-prompt))
-  (yas-reload-all))
+(custom-set-variables
+ '(yas-snippet-dirs (concat user-emacs-directory "etc/snippets"))
+ '(yas-prompt-functions '(helm-editutil-yas-prompt))
+ '(yas-global-mode 1))
+
+(with-eval-after-load 'yasnippet (yas-reload-all))
+
 ;;; 14_yasnippet.el ends here
