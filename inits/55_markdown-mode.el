@@ -3,7 +3,7 @@
 ;;; Code:
 
 (defun marked-preview-file ()
-  "Open Marked.app ."
+  "Open Marked.app."
   (interactive)
   (shell-command
    (format "open -a Marked\\ 2.app %s"

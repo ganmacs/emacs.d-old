@@ -3,12 +3,12 @@
 ;;; Code:
 
 (util/append-to-list 'auto-mode-alist
-                ("Gemfile" . ruby-mode)
-                ("\\.thor$" . ruby-mode)
-                ("\\.rake$" . ruby-mode)
-                ("Guardfile$" . ruby-mode)
-                ("\\.env$" . ruby-mode)
-                ("\\.cap$" . ruby-mode))
+                     ("Gemfile" . ruby-mode)
+                     ("\\.thor$" . ruby-mode)
+                     ("\\.rake$" . ruby-mode)
+                     ("Guardfile$" . ruby-mode)
+                     ("\\.env$" . ruby-mode)
+                     ("\\.cap$" . ruby-mode))
 
 (with-eval-after-load 'ruby-mode
   (setq ruby-insert-encoding-magic-comment nil)
@@ -29,8 +29,8 @@
 
 ;; rhtml
 (util/append-to-list 'auto-mode-alist
-                ("\\.eco$" . rhtml-mode)
-                ("\\.jeco$" . rhtml-mode))
+                     ("\\.eco$" . rhtml-mode)
+                     ("\\.jeco$" . rhtml-mode))
 
 (require 'slim-mode)
 

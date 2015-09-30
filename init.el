@@ -1,4 +1,6 @@
-(unless load-file-name (cd (getenv "HOME")))
+;;; init.el --- initialize file
+;;; Commentary:
+;;; Code:
 
 (require 'cask "/usr/local/opt/cask/cask.el")
 (cask-initialize)
@@ -6,8 +8,9 @@
 (setq custom-theme-directory "~/.emacs.d/etc/color-theme/")
 (load-theme 'tango t)
 
-;; init-loader
 (require 'init-loader)
-;; (custom-set-variables
-;;  '(init-loader-show-log-after-init nil))
+(custom-set-variables
+ '(setq-default init-loader-byte-compile t))
 (init-loader-load)
+
+;;; init.el ends here

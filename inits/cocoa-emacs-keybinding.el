@@ -3,6 +3,7 @@
 ;;; Code:
 
 (defun my/browser-define-hook ()
+  "My Browser definintion hook."
   (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
   (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
   (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
@@ -17,18 +18,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @for iTerm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun cd-on-iterm ()
+  "Execute cd command on iterm."
   (interactive)
   (util/execute-on-iterm
    (format "cd %s" (or (util/git-directory) default-directory))))
 (global-set-key (kbd "C-c d") 'cd-on-iterm)
 
 (defun rspec-on-iterm ()
+  "Execute rspec command on iterm."
   (interactive)
   (util/execute-on-iterm
-   (format "bundle exec spring rspec %s:%s" buffer-file-name (line-number-at-pos))))
-
+   (format "bundle exec rspec %s:%s" buffer-file-name (line-number-at-pos))))
 
 (defun search-word-in-alc ()
+  "Search word in alc."
   (interactive)
   (let* ((cmd "open \"%s\"")
          (url (format "http://eow.alc.co.jp/search?q=%s"
@@ -55,14 +58,17 @@
 
 
 (defun chrome-reload ()
+  "Reload tab in chrome."
   (interactive)
   (shell-command "osascript -e 'tell application \"Google Chrome\" to reload active tab of first window'"))
 
 (defun chrome-next-tab ()
+  "Move next tab in chrome."
   (interactive)
   (shell-command "osascript -e 'tell application \"Google Chrome\" to set active tab index of first window to (get (active tab index of first window) mod (get count tabs of first window)) + 1'"))
 
 (defun chrome-previous-tab ()
+  "Move previous tab in chrome."
   (interactive)
   (shell-command "osascript -e 'tell application \"Google Chrome\"
  set act_i to active tab index of first window
@@ -74,10 +80,12 @@
 end tell'"))
 
 (defun chrome-scroll-down ()
+  "Scroll down the page in chrom."
   (interactive)
   (shell-command "osascript -e 'tell application \"Google Chrome\" to execute active tab of first window javascript \"var x = document.documentElement.scrollLeft || document.body.scrollLeft; var y = document.documentElement.scollTop || document.body.scrollTop; y += 50; window.scroll(x, y);\"'"))
 
 (defun chrome-scroll-up ()
+  "Scroll up the page in chrom."
   (interactive)
   (shell-command "osascript -e 'tell application \"Google Chrome\" to execute active tab of first window javascript \"var x = document.documentElement.scrollLeft || document.body.scrollLeft; var y = document.documentElement.scrollTop || document.body.scrollTop; y -= 50; window.scroll(x, y);\"'"))
 

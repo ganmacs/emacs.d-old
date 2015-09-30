@@ -3,22 +3,23 @@
 ;;; Code:
 
 (defmacro util/append-to-list (mode-list &rest body)
-  "add-to-listに複数指定する"
+  "Add to MODE-LIST to `add-to-list' with  BODY."
   (let ((lst (cl-gensym)))
     `(dolist (,lst ',body)
        (add-to-list ,mode-list ,lst))))
 
 (defmacro util/add-hook-lambda (hook &rest body)
-  "add-hookのlambdaをなくす"
+  "Emit lamada when add HOOK to `add-hook' with BODY."
   `(add-hook ,hook (lambda () ,@body)))
 
 (defmacro util/add-hooks-lambda (hooks &rest body)
+  "Emit lamada when add HOOKS to `add-hook' with BODY."
   (let ((hook (cl-gensym)))
     `(dolist (,hook ,hooks)
        (add-hook ,hook (lambda () ,@body)))))
 
 (defmacro util/global-set-key-lambda (keybind &rest body)
-  "gobal-set-keyに関数を渡すときlambdaをなくす"
+  "Emit lamada when add KEYBIND by `global-set-key' with BODY."
   `(global-set-key ,keybind '(lambda () (interactive) ,@body)))
 
 (defun util/chomp (str)

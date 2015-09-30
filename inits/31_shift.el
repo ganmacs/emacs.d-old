@@ -3,6 +3,7 @@
 ;;; Code:
 
 (defun add-keys-to-ace-jump-mode (prefix c &optional mode)
+  "Define macro with PREFIX and C as char and MODE is char or word."
   (define-key global-map
     (read-kbd-macro (concat prefix (string c)))
     `(lambda ()

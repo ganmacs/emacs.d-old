@@ -38,11 +38,11 @@
 (define-key ac-mode-map (kbd "M-/") 'auto-complete)
 
 (util/append-to-list 'ac-modes
-                html-mode
-                haml-mode
-                eshell-mode
-                cider-mode
-                markdown-mode)
+                     html-mode
+                     haml-mode
+                     eshell-mode
+                     cider-mode
+                     markdown-mode)
 
 
 ;;; 13_auto-complete.el ends here

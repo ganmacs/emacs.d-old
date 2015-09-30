@@ -37,12 +37,13 @@
 (add-to-list 'process-coding-system-alist '("gosh" utf-8 . utf-8))
 (setq scheme-program-name "/usr/local/bin/gosh -i")
 
-(defun scheme-other-windows ()
+(defun scheme-another-window ()
+  "Open sheme interpreter in other window."
   (interactive)
   (save-selected-window
     (select-window (split-window-horizontally))
     (run-scheme scheme-program-name)))
 
-(define-key global-map "\C-cG" 'scheme-other-windows)
+(define-key global-map "\C-cG" 'scheme-another-window)
 
 ;;; 52_lisp-mode.el ends here

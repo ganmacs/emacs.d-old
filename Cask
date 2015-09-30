@@ -12,11 +12,10 @@
 (depends-on "helm-ls-git")
 (depends-on "helm-ag")
 (depends-on "emacs-git-grep" :git "https://github.com/ganmacs/emacs-git-grep.git")
-(depends-on "helm-ghq" :git "https://github.com/ganmacs/emacs-helm-ghq.git")
+(depends-on "helm-ghq")
 
 ;; dired
 (depends-on "dired+")
-(depends-on "dired-hacks" :git "https://github.com/Fuco1/dired-hacks.git")
 (depends-on "dired-isearch+" :git "https://github.com/ganmacs/dired-isearch-plus")
 
 ;; auto-complete
@@ -53,8 +52,6 @@
 (depends-on "undo-tree")
 (depends-on "anzu")
 (depends-on "drag-stuff")
-(depends-on "use-package")
-;; (depends-on "bind-key")
 
 ;; flycheck
 (depends-on "flycheck")
@@ -81,7 +78,6 @@
 (depends-on "go-mode")
 (depends-on "go-autocomplete")
 (depends-on "go-eldoc")
-(depends-on "yasnippet-go")
 
 ;; scala
 (depends-on "scala-mode2")
@@ -130,3 +126,7 @@
 (depends-on "goto-chg")
 (depends-on "evil")
 (depends-on "emoji-cheat-sheet-plus")
+
+
+(depends-on "use-package")
+;; (depends-on "bind-key")

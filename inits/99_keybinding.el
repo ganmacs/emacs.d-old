@@ -2,110 +2,55 @@
 ;;; Commentary:
 ;;; Code:
 
-(global-set-key (kbd "C-m") 'newline-and-indent)
-
 (global-set-key (kbd "C-.") 'other-window)
-
-(define-key minibuffer-local-completion-map "\C-w" 'kill-word-at-point)
-
 (global-set-key (kbd "C-h") 'delete-backward-char)
-
 (global-set-key (kbd "C-j") 'dabbrev-expand)
-
-(global-unset-key (kbd "C-x C-c"))
-
+(global-set-key (kbd "C-m") 'newline-and-indent)
+(global-set-key (kbd "C-q") 'one-line-comment)
+(global-set-key (kbd "C-z") 'zap-to-char) ;; Delete chars until designated char appeared
+(global-set-key (kbd "C-x o") '(lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-h") 'help-command)
-
-(util/global-set-key-lambda (kbd "C-x o") (other-window -1))
-
-;; タブ文字、全角空白、文末の空白の色付け
+(global-set-key (kbd "C-x C-k") 'kill-all-buffers)
+(global-set-key (kbd "C-x C-n") 'cycle-spacing)
+(global-set-key (kbd "C-c l") 'toggle-truncate-lines)
 (global-set-key (kbd "C-c w") 'global-whitespace-mode)
 
-;;ディレクトリを開ける
-(global-set-key (kbd "C-x C-d") 'open-dired-from-recentf)
-
-;; 折り返しトグルコマンド
-(global-set-key (kbd "C-c l") 'toggle-truncate-lines)
-
-;; kill all buffers
-(global-set-key (kbd "C-x C-k") 'kill-all-buffers)
-
-;; pdfコピー時の濁点の分離をなおす
-(global-set-key (kbd "C-x RET u") 'ucs-normalize-NFC-buffer)
-
-;; スペースを1つに
-(global-set-key (kbd "C-x C-n") 'just-one-space)
-
-;; １行コメント
-(global-set-key (kbd "C-q") 'one-line-comment)
-
-;; 全部インデント
 (global-set-key (kbd "C-S-i") 'indent-buffer)
-
-;; いい感じにマーク
-(global-set-key (kbd "C-#") 'mark-sexp)
-
-;; 指定文字まで削除
-(global-set-key (kbd "C-z") 'zap-to-char)
-
-;; ------------shift + ctrl-------------
 (global-set-key (kbd "C-S-f") 'next-space)
 (global-set-key (kbd "C-S-b") 'previous-space)
 (global-set-key (kbd "C-S-s") 'quote-insert-inline)
 (global-set-key (kbd "C-S-d") 'double-quote-insert-inline)
 (global-set-key (kbd "C-S-t") 'previous-transpose-char)
 
-;; --------------meta------------------
-;;M-hで前方単語削除
 (global-set-key (kbd "M-h") 'backward-kill-word)
-
-;; 1行削除
 (global-set-key (kbd "M-k") 'kill-whole-line)
-
-;; パラグラフ移動（空行移動）
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
-
-;; 入れ替え
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "M-C-a") 'backward-sentence)
 (global-set-key (kbd "M-C-e") 'forward-sentence)
 
-;; --------------super------------------
-;; 良い感じに削除
 (global-set-key (kbd "s-k") 'kill-sexp)
 (global-set-key (kbd "s-h") '(lambda () (interactive) (kill-sexp -1)))
-
-;;バファの切り替えをらくに
 (global-set-key (kbd "s-n") 'next-buffer)
 (global-set-key (kbd "s-p") 'previous-buffer)
-
-;; 良い感じに移動移動
 (global-set-key (kbd "s-f") 'forward-sexp)
 (global-set-key (kbd "s-b") 'backward-sexp)
-
-;; window分割
 (global-set-key (kbd "s-0") 'delete-window)
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
-
-;; register
 (global-set-key (kbd "s-S") 'point-to-register)
-
 (global-set-key (kbd "s-J") 'jump-to-register)
-
-;; 変更部分を可視化/不可視化のトグル
 (global-set-key (kbd "s-i") 'highlight-changes-visible-mode)
-
-;; 文末にいって改行
 (global-set-key (kbd "s-m") 'end-line-indent)
-
-;; 今の行を下に移動
 (global-set-key (kbd "s-o") 'begin-line-indent)
 
-;; kill buffer
 (global-set-key (kbd "C-M-k") 'kill-this-buffer)
+
+(global-unset-key (kbd "C-x C-c"))
+(define-key minibuffer-local-completion-map "\C-w" 'kill-word-at-point)
+(global-set-key (kbd "C-x RET u") 'ucs-normalize-NFC-buffer) ;; pdfコピー時の濁点の分離をなおす
 
 ;; ---------- specific mode -------------
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
@@ -114,7 +59,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Function ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;コピー
 (defun copy-whole-line (&optional arg)
   "Copy current line."
   (interactive "p")
@@ -144,8 +88,8 @@
                                 (progn (forward-visible-line arg) (point))))))
   (message (substring (car kill-ring-yank-pointer) 0 -1)))
 
-;; カーソル位置の単語を削除
 (defun kill-word-at-point ()
+  "Delete a word at point."
   (interactive)
   (let ((char (char-to-string (char-after (point)))))
     (cond
@@ -153,17 +97,8 @@
      ((string-match "[\t\n -@\[-`{-~]" char) (kill-word 1))
      (t (forward-char) (backward-word) (kill-word 1)))))
 
-;; 指定した最近のディレクトリに行く
-(defun open-dired-from-recentf (keyword)
-  (interactive "sPart of the destination directory: ")
-  (with-temp-buffer
-    (mapcar (lambda (x) (insert (format "%s\n" x)))
-            recentf-list)
-    (goto-char (point-min))
-    (search-forward keyword)
-    (dired (file-name-directory (thing-at-point 'line)))))
-
 (defun kill-all-buffers()
+  "Kill all buffer."
   (interactive)
   (yes-or-no-p "kill all buffers? ")
   (dolist (buf (buffer-list))
@@ -185,6 +120,7 @@
   (search-backward (char-to-string char) (point-at-bol) nil 1))
 
 (defun add-keys-to-vim-likef (prefix c &optional mode)
+  "Define macrow with PREFIX and C for MODE."
   (define-key global-map
     (read-kbd-macro (concat prefix (string c)))
     `(lambda ()
@@ -200,32 +136,32 @@
 (cl-loop for c from ?a to ?z do (add-keys-to-vim-likef "H-C-" c 'word))
 (cl-loop for c from ?! to ?~ do (add-keys-to-vim-likef "H-C-" c 'word))
 
-(setq inline-separator "^\s()[]:;,=.\n{}")
+(defvar inline-separator "^\s()[]:;,=.\n{}")
 
-;; 文字列をクオートで囲む
 (defun quote-insert-inline ()
+  "Wrap string by quote."
   (interactive)
   (skip-chars-backward inline-separator)
   (insert "'")
   (skip-chars-forward inline-separator)
   (insert "'"))
 
-;; 文字列をダブルクオートで囲む
 (defun double-quote-insert-inline ()
+  "Wrap string by double quote."
   (interactive)
   (skip-chars-backward inline-separator)
   (insert "\"")
   (skip-chars-forward inline-separator)
   (insert "\""))
 
-;; 次の空白に移動
 (defun next-space ()
+  "Move forward until space appear."
   (interactive)
   (search-forward (char-to-string ?\s) nil 1)
   (if (= (char-after (point)) ?\s) (next-space)))
 
-;; 前の空白
 (defun previous-space ()
+  "Move backward until space appear."
   (interactive)
   (search-backward (char-to-string ?\s) nil 1)
   (backward-char)
@@ -233,6 +169,7 @@
 
 ;; 1行コメント
 (defun one-line-comment ()
+  "Toggle a current line to comment or uncomment."
   (interactive)
   (save-excursion
     (beginning-of-line)
@@ -240,29 +177,29 @@
     (end-of-line)
     (comment-or-uncomment-region (region-beginning) (region-end))))
 
-;; 全部インデント
 (defun indent-buffer ()
+  "Indent current buffer."
   (interactive)
   (save-excursion
     (mark-whole-buffer)
     (indent-for-tab-command)))
 
-;; 文末いって改行
 (defun end-line-indent ()
+  "Move end of line and return."
   (interactive)
   (end-of-line)
   (newline-and-indent))
 
-;; 文頭いってから改行
 (defun begin-line-indent ()
+  "Move begingin of line and return."
   (interactive)
   (beginning-of-line)
   (newline-and-indent)
-  (previous-line)
+  (forward-line -1)
   (indent-for-tab-command))
 
-;; 一つ前のC-t
 (defun previous-transpose-char ()
+  "Transpose previous char."
   (interactive)
   (transpose-chars -1)
   (forward-char))
@@ -271,7 +208,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Advice ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; kill-lineで行が連結したときにインデントを減らす
+;; kill-lineでn行が連結したときにインデントを減らす
 (defadvice kill-line (before kill-line-and-fixup activate)
   (when (and (not (bolp)) (eolp))
     (forward-char)
@@ -308,6 +245,5 @@
           (goto-char (mark))
           (isearch-repeat-forward)))
     ad-do-it))
-
 
 ;;; 99_keybinding.el ends here

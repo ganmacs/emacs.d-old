@@ -3,6 +3,7 @@
 ;;; Code:
 
 (defun my/coffee-mode-hook ()
+  "My coffee mode hook."
   (set (make-local-variable 'tab-width) 2)
   (set (make-local-variable 'coffee-tab-width) 2))
 

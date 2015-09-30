@@ -2,45 +2,53 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'dired-isearch+)
-(define-key dired-mode-map (kbd "s") 'dired-isearch+)
-(setq dired-isearch+-return "\C-f")
+(defvar dired-open-whitelist '("c" "coffee" "clj" "el"
+                               "ex" "exs" "go" "h" "hs"
+                               "html" "js" "ml" "md" "rb"
+                               "yml" "scala" "slim" "scss"))
 
-(require 'dired-subtree)
-(define-key dired-mode-map (kbd "i") 'dired-subtree-insert)
-(define-key dired-mode-map (kbd "I") 'dired-subtree-remove)
+(with-eval-after-load "dired"
+  (defvar dired-mode-map)
 
-(require 'dired-filter)
+  (require 'dired+)
+  (define-key dired-mode-map (kbd "C-f") 'dired-file-open-or-not)
+  (define-key dired-mode-map (kbd "RET") 'dired-file-open-or-not)
+  (define-key dired-mode-map (kbd "<right>") 'dired-file-open-or-not)
+  (define-key dired-mode-map (kbd "C-b") 'dired-up-directory)
+  (define-key dired-mode-map (kbd "<left>") 'dired-up-directory)
+  (define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
+  (define-key dired-mode-map (kbd "C-g") 'quit-window)
+  (define-key dired-mode-map (kbd "SPC") 'dired/do-quicklook)
+  (define-key dired-mode-map (kbd "C-o") 'dired-find-file-other-window)
+  (define-key dired-mode-map (kbd "V") 'my-dired-view-marking-files)
 
-(require 'dired-narrow)
-(define-key dired-mode-map (kbd ";") 'dired-narrow)
+  (define-key dired-mode-map (kbd "h") 'dired-up-directory)
+  (define-key dired-mode-map (kbd "j") 'diredp-next-line)
+  (define-key dired-mode-map (kbd "k") 'diredp-previous-line)
+  (define-key dired-mode-map (kbd "l") 'dired-file-open-or-not)
 
+  (require 'dired-isearch+)
+  (define-key dired-mode-map (kbd "s") 'dired-isearch+))
 
-;; (require 'dired-ex-isearch)
-;; (define-key dired-mode-map "s" 'dired-ex-isearch)
+(defun my/dired-mode-hook ()
+  "My dired mode hook."
+  ;; for sorting by extensions mac
+  (when (eq system-type 'darwin)
+    (require 'ls-lisp)
+    (setq ls-lisp-use-insert-directory-program nil))
 
-(require 'dired+)
-;; ディレクトリから先に表示
-(setq ls-lisp-dirs-first t)
+  (setq ls-lisp-dirs-first t)
+  (setq dired-recursive-copies 'always)
+  (setq dired-recursive-deletes 'always)
+  (setq dired-isearch+-return "\C-f"))
 
-;; 再帰コピー
-(setq dired-recursive-copies 'always)
+(add-hook 'dired-mode-hook 'my/dired-mode-hook)
 
-;; 再帰削除
-(setq dired-recursive-deletes 'always)
-
-;; ゴミ箱を利用する
 (custom-set-variables
  '(delete-by-moving-to-trash t)
  '(trash-directory "~/.Trash"))
 
-;; for sorting by extensions mac
-(when (eq system-type 'darwin)
-  (require 'ls-lisp)
-  (setq ls-lisp-use-insert-directory-program nil))
-
-;; dired で Quick Look
-(defun my-dired-do-quicklook ()
+(defun dired/do-quicklook ()
   "In dired, preview with Quick Look."
   (interactive)
   (let ((file (dired-get-filename))
@@ -49,9 +57,8 @@
         (kill-process process)
       (start-process "qlmanage_ps" nil "qlmanage" "-p" file))))
 
-;; @@ diredでディレクトリを開いた際に新規タブで開くのをやめる
-;; ファイルなら別バッファで、ディレクトリなら同じバッファで開く
 (defun dired-open-in-accordance-with-situation ()
+  "Open file as same buffer when file is directory."
   (interactive)
   (let ((file (dired-get-filename)))
     (if (file-directory-p file)
@@ -74,66 +81,21 @@
           (dired up)
           (dired-goto-file dir)))))
 
-;; diredでマークをつけたファイルを開く
-(eval-after-load "dired"
-  '(progn
-     (define-key dired-mode-map (kbd "F") 'my-dired-find-marked-files)
-     (defun my-dired-find-marked-files (&optional arg)
-       "Open each of the marked files, or the file under the point, or when prefix arg, the next N files "
-       (interactive "P")
-       (let* ((fn-list (dired-get-marked-files nil arg)))
-         (mapc 'find-file fn-list)))))
-
-;; diredでマークをつけたファイルをviewモードで開く
-(eval-after-load "dired"
-  '(progn
-     (define-key dired-mode-map (kbd "V") 'my-dired-view-marked-files)
-     (defun my-dired-view-marked-files (&optional arg)
-       "Open each of the marked files, or the file under the point, or when prefix arg, the next N files "
-       (interactive "P")
-       (let* ((fn-list (dired-get-marked-files nil arg)))
-         (mapc 'view-file fn-list)))))
-
 (defadvice dired-copy-filename-as-kill (before four-prefix activate)
   (interactive "P")
   (when (eq 4 (prefix-numeric-value (ad-get-arg 0)))
     (ad-set-arg 0 0)))
-
-(define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
-(define-key dired-mode-map (kbd "RET") 'dired-open-in-accordance-with-situation)
-(define-key dired-mode-map (kbd "a") 'dired-find-file)
-
-;; ディレクトリの移動キーを追加(wdired 中は無効)
-(define-key dired-mode-map (kbd "<left>") 'dired-up-directory)
-(define-key dired-mode-map (kbd "<right>") 'dired-open-in-accordance-with-situation)
-(define-key dired-mode-map (kbd "C-b") 'dired-up-directory)
-(define-key dired-mode-map (kbd "C-f") 'dired-open-in-accordance-with-situation)
-(define-key dired-mode-map (kbd "C-g") 'quit-window)
-(define-key dired-mode-map (kbd "SPC") 'my-dired-do-quicklook)
-(define-key dired-mode-map (kbd "C-o") 'dired-find-file-other-window)
-(define-key dired-mode-map (kbd "V") 'my-dired-view-marking-files)
-(define-key dired-mode-map (kbd "C-f") 'dired-file-open-or-not)
-
-;; vim like key
-(define-key dired-mode-map (kbd "h") 'dired-up-directory)
-(define-key dired-mode-map (kbd "j") 'diredp-next-line)
-(define-key dired-mode-map (kbd "k") 'diredp-previous-line)
-(define-key dired-mode-map (kbd "l") 'dired-open-in-accordance-with-situation)
-
-(setq dired-open-whitelist '("c" "coffee" "clj" "el"
-                             "ex" "exs" "go" "h" "hs"
-                             "html" "js" "ml" "md" "rb"
-                             "yml" "scala" "slim" "scss"))
 
 (defun dired/binary? ()
   (let ((cmd (format "nkf -g %s" (dired/filename-at-point))))
     (string= "BINARY" (util/chomp (shell-command-to-string cmd)))))
 
 (defun dired/filename-at-point ()
+  "Return filen at point."
   (car (dired-get-marked-files 'no-dir)))
 
 (defun dired/directory? ()
-   (file-directory-p (car (dired-get-marked-files))))
+  (file-directory-p (car (dired-get-marked-files))))
 
 (defun dired/include-whitelist? (filename whitelist)
   (if whitelist
@@ -148,8 +110,8 @@
     (if (or (dired/directory?)
             (dired/include-whitelist? filename ext-lst)
             (not (dired/binary?)))
-        (dired-open-in-accordance-with-situation)
+        (dired-find-file)
       (if (yes-or-no-p (format "Do you really open? %s" filename))
-          (dired-open-in-accordance-with-situation)))))
+          (dired-find-file)))))
 
 ;;; 12_dired.el ends here

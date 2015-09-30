@@ -7,12 +7,13 @@
 (add-to-list 'auto-mode-alist '("\\.ctp$"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 
-(defun web-mode-hook ()
+(defun my/web-mode-hook ()
+  "My web mode hook."
   (define-key web-mode-map (kbd "C-;") 'helm-for-files)
   (define-key web-mode-map (kbd "C-c c") 'web-mode-comment-or-uncomment)
   (define-key web-mode-map (kbd "C-i") 'web-mode-buffer-indent))
 
-(add-hook 'web-mode-hook 'web-mode-hook)
+(add-hook 'web-mode-hook 'my/web-mode-hook)
 
 (custom-set-faces
  '(web-mode-html-tag-bracket-face
@@ -63,14 +64,16 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'html-mode-hook 'emmet-mode)
 
-(defun my-emmet-hook ()
+(defun my/emmet-mode-hook ()
+  "My emmet mode hook."
   (define-key emmet-mode-keymap (kbd "C-j") nil)
   (define-key emmet-mode-keymap (kbd "s-i") 'emmet-expand-line))
+
+(add-hook 'emmet-mode-hook 'my/emmet-mode-hook)
 
 (with-eval-after-load 'emmet-mode
   (setq emmet-indentation 2)
   (setq emmet-preview-default nil))
 
-(add-hook 'emmet-mode-hook 'my-emmet-hook)
 
 ;;; 56_markup-mode.el ends here

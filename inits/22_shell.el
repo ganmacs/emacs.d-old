@@ -1,3 +1,7 @@
+;;; 22_shell.el --- mode configuration
+;;; Commentary:
+;;; Code:
+
 ;; -------------- exec-path-from-shell -----------------------
 (require 'exec-path-from-shell)
 (exec-path-from-shell-copy-env "GOPATH")
@@ -8,6 +12,8 @@
 (require 'shell-switcher)
 (setq shell-switcher-mode t)
 (setq eshell-path-env (getenv "PATH"))
+
+(setq comint-scroll-show-maximum-output t) ;; shell-mode
 
 (defun my-eshell-mode-hook ()
   (define-key eshell-mode-map "\C-p" 'eshell-previous-matching-input-from-input)
@@ -74,3 +80,5 @@
  '(eshell-visual-commands (quote ("vi" "vim" "top" "screen" "lynx"
                                   "ssh" "rlogin" "telnet"
                                   "irb" "coffee" "ghci"))))
+
+;;; 22_shell.el ends here
