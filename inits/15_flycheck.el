@@ -6,6 +6,7 @@
 
 ;; flycheck-pos-tip
 (custom-set-variables
- '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+ '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
+ '(flycheck-indication-mode 'right-fringe))
 
 ;;; 15_flycheck.el ends here

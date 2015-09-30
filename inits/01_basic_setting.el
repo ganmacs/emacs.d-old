@@ -57,7 +57,7 @@
 ;; EOF
 (custom-set-variables
  '(indicate-empty-lines t)
- '(indicate-buffer-boundaries 'right))
+ '(indicate-buffer-boundaries 'left))
 
 ;; colors
 (custom-set-faces
