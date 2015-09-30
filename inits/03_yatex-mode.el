@@ -32,6 +32,7 @@
                                 ((string-match "pdflatex\\|latex" tex-command) "/usr/texbin/makeindex")
                                 (t "/usr/texbin/mendex")))
   (setq dvi2-command "/usr/bin/open -a Skim")
+  (setq tex-pdfview-command "/usr/bin/open -a Skim")
   (setq dviprint-command-format "/usr/bin/open -a \"Adobe Reader\" `echo %s | sed -e \"s/\\.[^.]*$/\\.pdf/\"`")
   (auto-fill-mode -1)
   (reftex-mode 1))
@@ -43,7 +44,7 @@
      (start-process
       "displayline"
       nil
-      "/Applications/Skim.app/Contents/SharedSupport/displayline"
+      "~/Applications/Skim.app/Contents/SharedSupport/displayline"
       (number-to-string (save-restriction
                           (widen)
                           (count-lines (point-min) (point))))
