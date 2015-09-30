@@ -13,7 +13,6 @@
 (global-set-key (kbd "C-x C-k") 'kill-all-buffers)
 (global-set-key (kbd "C-x C-n") 'cycle-spacing)
 (global-set-key (kbd "C-c l") 'toggle-truncate-lines)
-(global-set-key (kbd "C-c w") 'global-whitespace-mode)
 
 (global-set-key (kbd "C-S-i") 'indent-buffer)
 (global-set-key (kbd "C-S-f") 'next-space)
@@ -42,7 +41,7 @@
 (global-set-key (kbd "s-3") 'split-window-right)
 (global-set-key (kbd "s-S") 'point-to-register)
 (global-set-key (kbd "s-J") 'jump-to-register)
-(global-set-key (kbd "s-i") 'highlight-changes-visible-mode)
+(global-set-key (kbd "s-i") 'global-whitespace-mode)
 (global-set-key (kbd "s-m") 'end-line-indent)
 (global-set-key (kbd "s-o") 'begin-line-indent)
 
