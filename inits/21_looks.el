@@ -4,67 +4,61 @@
 
 ;; highlight-indentation
 (require 'highlight-indentation)
+(custom-set-faces
+ '(highlight-indentation-current-column-face ((t (:background "#222")))))
 
-(util/add-hooks-lambda
- '(ruby-mode-hook
-   coffee-mode-hook
-   js2-mode-hook
-   rhtml-mode-hook
-   clojure-mode-hook
-   java-mode-hook
-   python-mode-hook
-   scheme-mode-hook
-   haskell-mode-hook
-   scala-mode-hook
-   tuareg-mode-hook
-   go-mode-hook
-   slim-mode-hook
-   elixir-mode-hook
-   c-mode-hook
-   cc-mode-hook
-   sh-mode-hook)
- (highlight-indentation-current-column-mode))
+(add-hook 'ruby-mode-hook    'highlight-indentation-current-column-mode)
+(add-hook 'coffee-mode-hook  'highlight-indentation-current-column-mode)
+(add-hook 'js2-mode-hook     'highlight-indentation-current-column-mode)
+(add-hook 'rhtml-mode-hook   'highlight-indentation-current-column-mode)
+(add-hook 'clojure-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'java-mode-hook    'highlight-indentation-current-column-mode)
+(add-hook 'python-mode-hook  'highlight-indentation-current-column-mode)
+(add-hook 'scheme-mode-hook  'highlight-indentation-current-column-mode)
+(add-hook 'haskell-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'scala-mode-hook   'highlight-indentation-current-column-mode)
+(add-hook 'tuareg-mode-hook  'highlight-indentation-current-column-mode)
+(add-hook 'go-mode-hook      'highlight-indentation-current-column-mode)
+(add-hook 'slim-mode-hook    'highlight-indentation-current-column-mode)
+(add-hook 'elixir-mode-hook  'highlight-indentation-current-column-mode)
+(add-hook 'c-mode-hook       'highlight-indentation-current-column-mode)
+(add-hook 'cc-mode-hook      'highlight-indentation-current-column-mode)
+(add-hook 'sh-mode-hook      'highlight-indentation-current-column-mode)
 
-(set-face-background 'highlight-indentation-current-column-face "#222")
-
-;; ------------- yascroll ----------------------
-
+;; yascroll
 (global-yascroll-bar-mode 1)
 (custom-set-faces
  '(yascroll:thumb-text-area ((t (:background "#777"))))
- '(yascroll:thumb-fringe ((t (:background "#777"))))
  '(yascroll:thumb-fringe ((t (:background "#777" :foreground "#777")))))
 
-;; ------------- idle-highlight-mode ----------------------
+;; idle-highlight-mode
+(custom-set-faces '(idle-highlight ((t (:underline t)))))
 
-(util/add-hooks-lambda
- '(emacs-lisp-mode-hook
-   ruby-mode-hook
-   js2-mode-hook
-   scala2-mode-hook
-   scheme-mode-hook
-   tuareg-mode-hook
-   clojure-mode-hook
-   go-mode-hook
-   haskell-mode-hook
-   elixir-mode-hook
-   scala-mode-hook
-   c-mode-hook
-   cc-mode-hook
-   sh-mode-hook)
- (idle-highlight-mode t))
+(add-hook 'ruby-mode-hook    'idel-highlight-mode)
+(add-hook 'coffee-mode-hook  'idel-highlight-mode)
+(add-hook 'js2-mode-hook     'idel-highlight-mode)
+(add-hook 'rhtml-mode-hook   'idel-highlight-mode)
+(add-hook 'clojure-mode-hook 'idel-highlight-mode)
+(add-hook 'java-mode-hook    'idel-highlight-mode)
+(add-hook 'python-mode-hook  'idel-highlight-mode)
+(add-hook 'scheme-mode-hook  'idel-highlight-mode)
+(add-hook 'haskell-mode-hook 'idel-highlight-mode)
+(add-hook 'scala-mode-hook   'idel-highlight-mode)
+(add-hook 'tuareg-mode-hook  'idel-highlight-mode)
+(add-hook 'go-mode-hook      'idel-highlight-mode)
+(add-hook 'slim-mode-hook    'idel-highlight-mode)
+(add-hook 'elixir-mode-hook  'idel-highlight-mode)
+(add-hook 'c-mode-hook       'idel-highlight-mode)
+(add-hook 'cc-mode-hook      'idel-highlight-mode)
+(add-hook 'sh-mode-hook      'idel-highlight-mode)
 
-(custom-set-faces
- '(idle-highlight ((t (:underline t)))))
-
-;; ------------- hl-anything ----------------------
-
+;; hl-anything
 (require 'hl-anything)
 (hl-highlight-mode 1)
 (global-set-key (kbd "C-0") 'hl-highlight-thingatpt-local)
 (global-set-key (kbd "M-0") 'hl-unhighlight-all-local)
 
-;; ------------- rainbow-mode ----------------------
+;; rainbow-mode
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'scss-mode-hook 'rainbow-mode)
 (add-hook 'html-mode-hook 'rainbow-mode)
@@ -74,48 +68,40 @@
 (require 'hlinum)
 (hlinum-activate)
 (custom-set-faces
- '(linum-highlight-face ((t (:foreground "black"
-                                         :background "#fce94f")))))
+ '(linum-highlight-face ((t (:foreground "black" :background "#fce94f")))))
 
 ;; powerline
 (require 'powerline)
 
 (defface powerline-active3
-  '((t (:background "#462743" :inherit mode-line-inactive
-                    :foreground "#eee")))
+  '((t (:background "#462743" :inherit mode-line-inactive :foreground "#eee")))
   "Powerline face 3."
   :group 'powerline)
 
 (defface powerline-inactive3
-  '((t (:background "#190E18" :inherit mode-line-inactive
-                    :foreground "#222")))
+  '((t (:background "#190E18" :inherit mode-line-inactive :foreground "#222")))
   "Powerline face 3."
   :group 'powerline)
 
 (defface powerline-active4
-  '((t (:background "#eee" :inherit mode-line-inactive
-                    :foreground "#462743")))
+  '((t (:background "#eee" :inherit mode-line-inactive :foreground "#462743")))
   "Powerline face 4."
   :group 'powerline)
 
 (defface powerline-inactive4
-  '((t (:background "#666" :inherit mode-line-inactive
-                    :foreground "#190E18")))
+  '((t (:background "#666" :inherit mode-line-inactive :foreground "#190E18")))
   "Powerline face 4."
   :group 'powerline)
 
 (defface powerline-active5
-  '((t (:background "#729fcf" :inherit mode-line-inactive
-                    :foreground "#222")))
+  '((t (:background "#729fcf" :inherit mode-line-inactive :foreground "#222")))
   "Powerline face 5."
   :group 'powerline)
 
 (defface powerline-inactive5
-  '((t (:background "#1B3954" :inherit mode-line-inactive
-                    :foreground "gray22")))
+  '((t (:background "#1B3954" :inherit mode-line-inactive :foreground "gray22")))
   "Powerline face 5."
   :group 'powerline)
-
 
 (defun my-powerline-theme ()
   "Setup the default mode-line."

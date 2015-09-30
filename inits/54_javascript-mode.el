@@ -2,14 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-(custom-set-variables '(js2-basic-offset 2))
-
-(defun my/js2-hook ()
-  "My js2 hook."
+(with-eval-after-load 'js2-mode
   (define-key js2-mode-map (kbd "M-j") nil))
 
-(add-hook 'js2-mode-hook 'my/js2-hook)
+(custom-set-variables '(js2-basic-offset 2))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
 
 ;;; 54_javascript-mode.el ends here

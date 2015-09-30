@@ -3,7 +3,6 @@
 ;;; Code:
 
 (global-anzu-mode +1)
-
 (set-face-attribute
  'anzu-mode-line nil :foreground "#fce94f" :weight 'bold)
 (custom-set-variables

@@ -51,7 +51,6 @@
 (define-key minibuffer-local-completion-map "\C-w" 'kill-word-at-point)
 (global-set-key (kbd "C-x RET u") 'ucs-normalize-NFC-buffer) ;; pdfコピー時の濁点の分離をなおす
 
-;; ---------- specific mode -------------
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

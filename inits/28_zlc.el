@@ -3,14 +3,15 @@
 ;;; Code:
 
 (zlc-mode t)
-(let ((map minibuffer-local-map))
-  (define-key map (kbd "C-n")     'zlc-select-next-vertical)
-  (define-key map (kbd "C-p")     'zlc-select-previous-vertical)
-  (define-key map (kbd "<down>")  'zlc-select-next-vertical)
-  (define-key map (kbd "<up>")    'zlc-select-previous-vertical)
-  (define-key map (kbd "<right>") 'zlc-select-next)
-  (define-key map (kbd "<left>")  'zlc-select-previous)
-  (define-key map (kbd "C-c") 'zlc-reset)
-  (setq zlc-select-completion-immediately nil))
+(custom-set-variables '(zlc-select-completion-immediately nil))
+
+(with-eval-after-load "zlc"
+  (define-key minibuffer-local-map (kbd "C-n")     'zlc-select-next-vertical)
+  (define-key minibuffer-local-map (kbd "C-p")     'zlc-select-previous-vertical)
+  (define-key minibuffer-local-map (kbd "<down>")  'zlc-select-next-vertical)
+  (define-key minibuffer-local-map (kbd "<up>")    'zlc-select-previous-vertical)
+  (define-key minibuffer-local-map (kbd "<right>") 'zlc-select-next)
+  (define-key minibuffer-local-map (kbd "<left>")  'zlc-select-previous)
+  (define-key minibuffer-local-map (kbd "C-c") 'zlc-reset))
 
 ;;; 28_zlc.el ends here

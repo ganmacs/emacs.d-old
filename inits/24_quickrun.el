@@ -2,12 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun quickrun-sc (start end)
-  (interactive "r")
-  (if mark-active
-      (quickrun :start start :end end)
+(defun my/quickrun ()
+  "Exec quickrun."
+  (interactive)
+  (if (use-region-p)
+      (quickrun-region (region-beginning)  (region-end))
     (quickrun)))
 
-(global-set-key (kbd "s-R") 'quickrun-sc)
+(global-set-key (kbd "s-R") 'my/quickrun)
 
 ;;; 24_quickrun.el ends here

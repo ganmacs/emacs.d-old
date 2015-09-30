@@ -2,13 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-;; for elisp
+;; elisp
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
-;; for clojure
-
+;; Clojure
 (defun my/cider-mode-hook ()
   "My Clojure mode."
+  (defvar clojure-mode-map)
   (cider-turn-on-eldoc-mode)
   (ac-flyspell-workaround)
   (ac-cider-setup)
@@ -29,8 +29,7 @@
   (setq nrepl-buffer-name-show-port t)
   (setq cider-repl-result-prefix ";; => "))
 
-
-;; ------ scheme
+;; Scheme
 (autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
 (autoload 'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
 
