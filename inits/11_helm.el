@@ -10,8 +10,7 @@
 (global-set-key (kbd "M-i") 'helm-imenu)
 (global-set-key (kbd "C-x C-h j") 'helm-c-apropos)
 
-(with-eval-after-load 'helm-mode
-  (defvar helm-map)
+(with-eval-after-load 'helm
   (define-key helm-map (kbd "C-h") 'delete-backward-char))
 
 (custom-set-variables
