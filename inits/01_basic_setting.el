@@ -4,50 +4,9 @@
 
 (require 'cl-lib)
 
-;; For Japanese
+;; Japanese
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(setq backup-by-copying t)
-
-(global-auto-revert-mode 1)
-
-;; Allow narrowing mode
-(put 'narrow-to-region 'disabled nil)
-
-(setq make-backup-files t)
-
-(custom-set-variables
- '(recentf-auto-cleanup 10)
- '(recentf-max-menu-items 10)
- '(recentf-max-saved-items 2000)
- '(recentf-exclude '(".emacs.d/recentf" ".emacs.d/log"))
- '(recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list)))
-(recentf-mode t)
-
-(custom-set-variables
- '(history-length 500)
- '(history-delete-duplicates t)
- '(savehist-file "~/.emacs.d/log/history"))
-(savehist-mode 1)
-
-(custom-set-variables
- '(delete-auto-save-files t)
- '(auto-save-timeout 600)               ; Default=30sec
- '(auto-save-list-file-prefix "~/.emacs.d/log/auto-save-list/.saves-")
- '(auto-save-file-name-transforms `((".*" ,(expand-file-name "~/.emacs.d/log/backup/") t)))
- '(backup-directory-alist (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/log/backup"))
-                                backup-directory-alist)))
-
-;; Make mode line flat
-(set-face-attribute 'mode-line          nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
-
-(custom-set-variables
- '(cua-enable-cua-keys nil))
-(cua-mode t)
 
 ;; Coding
 (custom-set-variables
@@ -56,7 +15,60 @@
  '(kill-whole-line t) ; Delete whole line when cursor is at begining of line
  '(require-final-newline nil)
  '(indent-tabs-mode nil)                ; Use space instead of tab
- '(tab-width 2))
+ '(tab-width 2)
+ '(global-auto-revert-mode 1)
+ '(gc-cons-threshold (* gc-cons-threshold 10)))
+
+;; recentf
+(custom-set-variables
+ '(recentf-auto-cleanup 10)
+ '(recentf-max-menu-items 10)
+ '(recentf-max-saved-items 2000)
+ '(recentf-exclude '(".emacs.d/recentf" ".emacs.d/log"))
+ '(recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+ '(recentf-mode t))
+
+;; save history
+(custom-set-variables
+ '(history-length 500)
+ '(history-delete-duplicates t)
+ '(savehist-file "~/.emacs.d/log/history")
+ '(savehist-mode 1))
+
+;; auto save
+(custom-set-variables
+ '(delete-auto-save-files t)
+ '(auto-save-timeout 600)               ; Default=30sec
+ '(auto-save-list-file-prefix "~/.emacs.d/log/auto-save-list/.saves-")
+ '(auto-save-file-name-transforms `((".*" ,(expand-file-name "~/.emacs.d/log/backup/") t))))
+
+;; backup
+(custom-set-variables
+ '(backup-by-copying t)
+ '(backup-directory-alist (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/log/backup"))
+                                backup-directory-alist))
+ '(make-backup-files t))
+
+;; cua
+(custom-set-variables
+ '(cua-enable-cua-keys nil)
+ '(cua-mode t))
+
+;; EOF
+(custom-set-variables
+ '(indicate-empty-lines t)
+ '(indicate-buffer-boundaries 'right))
+
+;; colors
+(custom-set-faces
+ '(cursor ((t (:background "#fce94f"))))
+ '(hl-line ((t (:background "#151515"))))
+ '(show-paren-match ((t (:background nil :underline "#fce94f"))))
+ '(trailing-whitespace  ((t (:background "#b14770"))))
+ '(mode-line  ((t (:box nil))))         ; mode line is flat
+ '(mode-line-inactive  ((t (:box nil)))))
+
+(setq frame-title-format "%f")          ; %f is fullpath
 
 ;; Looks
 (custom-set-variables
@@ -70,52 +82,32 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message "") ; Remove messages in intial scratch buffer
  '(ring-bell-function 'ignore)
- )
+ '(global-linum-mode t)
+ '(global-hl-line-mode t)
+ '(show-trailing-whitespace t))
 
-;; trailing white space
-(set-face-background 'trailing-whitespace "#b14770")
-(custom-set-variables '(show-trailing-whitespace t))
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; show EOF
+;; Parens
 (custom-set-variables
- '(indicate-empty-lines t)
- '(indicate-buffer-boundaries 'right))
+ '(show-paren-delay 0)
+ '(show-paren-style 'expression)
+ '(show-paren-mode t))
 
-(set-cursor-color "#fce94f")
+;; coursor
 (custom-set-variables
  '(blink-cursor-interval 0.5)
- '(blink-cursor-delay 300.0))           ; 5 minitus
-(blink-cursor-mode 1)
-
-(global-hl-line-mode t)
-(custom-set-faces
- '(hl-line ((t (:background "#151515")))))
-
-;; Display line number
-(global-linum-mode t)
+ '(blink-cursor-delay 300.0)           ; 5 minitus
+ '(blink-cursor-mode 1))
 
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (90 60)))
 
-(setq frame-title-format "%f")          ; %f is fullpath
-
-;; 括弧の範囲内を強調表示
-(custom-set-variables
- '(show-paren-delay 0)
- '(show-paren-style 'expression))
-(set-face-background 'show-paren-match-face nil)
-(set-face-underline 'show-paren-match-face "#fce94f")
-(show-paren-mode t)
-
-;; 1行ずつスクロール
+;; scroll
 (custom-set-variables
  '(scroll-conservatively 35)
  '(scroll-margin 0)
- '(sescroll-step 1))
+ '(sescroll-step 1)
+ '(mouse-wheel-mode 1))
 
-;; マウススクロール調整
-(mouse-wheel-mode)
 (util/global-set-key-lambda [wheel-up] (scroll-down 1))
 (util/global-set-key-lambda [wheel-down] (scroll-up 1))
 (util/global-set-key-lambda [double-wheel-up] (scroll-down 1))
@@ -123,18 +115,10 @@
 (util/global-set-key-lambda [triple-wheel-up] (scroll-down 2))
 (util/global-set-key-lambda [triple-wheel-down] (scroll-up 2))
 
-(defface my-face-b-1 '((t (:background "DeepPink"))) nil)
-(defvar my-face-b-1 'my-face-b-1)
-(defadvice font-lock-mode (before my-font-lock-mode ())
-  (font-lock-add-keywords
-   major-mode
-   '(("　" 0 my-face-b-1 append))))
-(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
-(ad-activate 'font-lock-mode)
-(util/add-hook-lambda 'find-file-hooks
-                      (if font-lock-mode nil (font-lock-mode t)))
+(fset 'yes-or-no-p 'y-or-n-p)
 
-;; for GC
-(setq-default gc-cons-threshold (* gc-cons-threshold 10))
+;; narrowing
+(put 'narrow-to-region 'disabled nil)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;;; 01_basic_setting.el ends here
