@@ -6,7 +6,7 @@
 (cask-initialize)
 
 (setq custom-theme-directory "~/.emacs.d/etc/color-theme/")
-(load-theme 'tango t)
+(load-theme 'sango t)
 
 (require 'init-loader)
 (custom-set-variables
