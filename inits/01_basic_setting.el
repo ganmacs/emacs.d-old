@@ -59,15 +59,6 @@
  '(indicate-empty-lines t)
  '(indicate-buffer-boundaries 'left))
 
-;; colors
-(custom-set-faces
- '(cursor ((t (:background "#fce94f"))))
- '(hl-line ((t (:background "#151515"))))
- '(show-paren-match ((t (:background nil :underline "#fce94f"))))
- '(trailing-whitespace  ((t (:background "#b14770"))))
- '(mode-line  ((t (:box nil))))         ; mode line is flat
- '(mode-line-inactive  ((t (:box nil)))))
-
 (setq frame-title-format "%f")          ; %f is fullpath
 
 ;; Looks
