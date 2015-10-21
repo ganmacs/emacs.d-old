@@ -37,11 +37,12 @@
 (define-key ac-menu-map "\C-p" 'ac-previous)
 (define-key ac-mode-map (kbd "M-/") 'auto-complete)
 
-(util/append-to-list 'ac-modes
-                     html-mode
-                     haml-mode
-                     eshell-mode
-                     cider-mode
-                     markdown-mode)
+(util/append-to-list
+ 'ac-modes '(html-mode
+             haml-mode
+             eshell-mode
+             cider-mode
+             markdown-mode
+             ensime-mode))
 
 ;;; 13_auto-complete.el ends here

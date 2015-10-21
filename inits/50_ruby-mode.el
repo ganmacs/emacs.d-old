@@ -4,13 +4,13 @@
 
 (defun my/ruby-mode-hook ()
   "My ruby mode hook."
-  (util/append-to-list 'auto-mode-alist
-                       ("Gemfile" . ruby-mode)
-                       ("\\.thor$" . ruby-mode)
-                       ("\\.rake$" . ruby-mode)
-                       ("Guardfile$" . ruby-mode)
-                       ("\\.env$" . ruby-mode)
-                       ("\\.cap$" . ruby-mode))
+  (util/append-to-list
+   'auto-mode-alist '(("Gemfile" . ruby-mode)
+                      ("\\.thor$" . ruby-mode)
+                      ("\\.rake$" . ruby-mode)
+                      ("Guardfile$" . ruby-mode)
+                      ("\\.env$" . ruby-mode)
+                      ("\\.cap$" . ruby-mode)))
   (setq ruby-insert-encoding-magic-comment nil))
 
 (add-hook 'ruby-mode-hook 'my/ruby-mode-hook)
@@ -31,9 +31,9 @@
       (when (> offset 0) (forward-char offset)))))
 
 ;; rhtml
-(util/append-to-list 'auto-mode-alist
-                     ("\\.eco$" . rhtml-mode)
-                     ("\\.jeco$" . rhtml-mode))
+(util/append-to-list
+ 'auto-mode-alist '(("\\.eco$" . rhtml-mode)
+                    ("\\.jeco$" . rhtml-mode)))
 
 (require 'slim-mode)
 

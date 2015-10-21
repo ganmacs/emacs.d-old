@@ -2,11 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(defmacro util/append-to-list (mode-list &rest body)
-  "Add to MODE-LIST to `add-to-list' with  BODY."
-  (let ((lst (cl-gensym)))
-    `(dolist (,lst ',body)
-       (add-to-list ,mode-list ,lst))))
+(defmacro util/append-to-list (mode-list modes)
+  "Add to MODE-LIST to `add-to-list' with MODES."
+  (let ((mode (cl-gensym)))
+    `(dolist (,mode ,modes)
+       (add-to-list ,mode-list ,mode))))
 
 (defmacro util/add-hook-lambda (hook &rest body)
   "Emit lamada when add HOOK to `add-hook' with BODY."
