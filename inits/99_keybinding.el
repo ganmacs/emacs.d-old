@@ -29,6 +29,7 @@
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "M-C-a") 'backward-sentence)
 (global-set-key (kbd "M-C-e") 'forward-sentence)
+(global-set-key (kbd "M-g g") 'goto-line)
 
 (global-set-key (kbd "s-k") 'kill-sexp)
 (global-set-key (kbd "s-h") '(lambda () (interactive) (kill-sexp -1)))

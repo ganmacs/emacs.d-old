@@ -39,7 +39,7 @@
 
 ;; git-grep
 (require 'emacs-git-grep)
-(global-set-key (kbd "M-g g") 'emacs-git-grep)
+(global-set-key (kbd "M-g M-g") 'emacs-git-grep)
 
 ;; helm-ls-git
 (global-set-key (kbd "s-l") 'helm-ls-git-ls)
