@@ -127,6 +127,6 @@
 (depends-on "evil")
 (depends-on "emoji-cheat-sheet-plus")
 
-
+(depends-on "editorconfig")
 (depends-on "use-package")
 ;; (depends-on "bind-key")
