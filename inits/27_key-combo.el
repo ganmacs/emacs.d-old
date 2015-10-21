@@ -184,23 +184,11 @@
     ("、"  . "，")))
 
 ;; Scala
-(defvar kb-scala
-  '(("+"  . (" + " " ++ "))
-    ("/"  . (" / " "// "))
-    ("-"  . (" - " key-combo-execute-original))
-    ("->" . " -> ")
-    ("<-" . " <- ")
-    ("||" . " || ")
-    ("/:" . " /: ")
-    (":"  . (": " " :: " " ::: "))
-    ("<%" . " <% ")
-    ("<:" . " <: ")))
-
 (defvar kb-ensime
   '(
-    ("+"  . (" + " " ++ "))
+    ("+"  . (key-combo-execute-original " + " " ++ "))
     ("/"  . (" / " "// "))
-    ("-"  . (" - " key-combo-execute-original))
+    ("-"  . (key-combo-execute-original " - "))
     ("->" . " -> ")
     ("<-" . " <- ")
     ("||" . " || ")
@@ -208,6 +196,7 @@
     (":"  . (": " " :: " " ::: "))
     ("<%" . " <% ")
     ("<:" . " <: ")
+    (":>" . " :> ")
     )
   )
 
@@ -258,7 +247,7 @@
     tuareg-mode-hook
     enh-ruby-mode-hook
     c-mode-common-hook
-    scala-mode-hook
+    ensime-mode-hook
     go-mode-hook
     elixir-mode-hook))
 
@@ -279,7 +268,6 @@
   (key-combo-define-hook 'c++-mode-hook 'kb-c++-load kb-c++)
   (key-combo-define-hook 'haskell-mode-hook 'kb-haskell-load kb-haskell)
   (key-combo-define-hook 'tuareg-mode-hook 'kb-tuareg-load kb-tuareg)
-  (key-combo-define-hook 'scala-mode-hook 'kb-scala-load kb-scala)
   (key-combo-define-hook 'ensime-mode-hook 'kb-ensime-load kb-ensime)
   (key-combo-define-hook 'go-mode-hook 'kb-go-load kb-go)
   (key-combo-define-hook 'elixir-mode-hook 'kb-elixir-load kb-elixir))
