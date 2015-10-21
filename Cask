@@ -12,7 +12,7 @@
 (depends-on "helm-ls-git")
 (depends-on "helm-ag")
 (depends-on "emacs-git-grep" :git "https://github.com/ganmacs/emacs-git-grep.git")
-(depends-on "helm-ghq")
+(depends-on "helm-ghq" :git "https://github.com/ganmacs/emacs-helm-ghq.git")
 
 ;; dired
 (depends-on "dired+")
