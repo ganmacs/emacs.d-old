@@ -45,6 +45,8 @@
 (global-set-key (kbd "s-i") 'global-whitespace-mode)
 (global-set-key (kbd "s-m") 'end-line-indent)
 (global-set-key (kbd "s-o") 'begin-line-indent)
+(global-set-key (kbd "s-[") 'backward-list)
+(global-set-key (kbd "s-]") 'forward-list)
 
 (global-set-key (kbd "C-M-k") 'kill-this-buffer)
 
