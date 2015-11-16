@@ -27,6 +27,12 @@
     clojure-mode-hook))
 
 ;; Go
+(defvar kb-c
+  '(("+"  . (" + " "++" key-combo-execute-original))
+    ("->" . "->")
+    ("-"  . (" - " "--" key-combo-execute-original))))
+
+;; Go
 (defvar kb-go
   '(("+"  . (" + " "++" key-combo-execute-original))
     ("-"  . (" - " "--" key-combo-execute-original))
@@ -270,7 +276,8 @@
   (key-combo-define-hook 'tuareg-mode-hook 'kb-tuareg-load kb-tuareg)
   (key-combo-define-hook 'ensime-mode-hook 'kb-ensime-load kb-ensime)
   (key-combo-define-hook 'go-mode-hook 'kb-go-load kb-go)
-  (key-combo-define-hook 'elixir-mode-hook 'kb-elixir-load kb-elixir))
+  (key-combo-define-hook 'elixir-mode-hook 'kb-elixir-load kb-elixir)
+  (key-combo-define-hook 'c-mode-hook 'kb-c-load kb-c))
 
 (my/key-combo-load)
 

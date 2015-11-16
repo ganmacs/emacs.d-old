@@ -9,6 +9,7 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-i") 'helm-imenu)
 (global-set-key (kbd "C-x C-h j") 'helm-c-apropos)
+(global-set-key (kbd "s-;") 'helm-find-files)
 
 (with-eval-after-load 'helm
   (define-key helm-map (kbd "C-h") 'delete-backward-char))
@@ -36,6 +37,18 @@
  '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
  '(helm-ag-command-option "--all-text")
  '(helm-ag-thing-at-point 'symbol))
+
+;; helm-gtags
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'ruby-mode-hook 'helm-gtags-mode)
+
+(with-eval-after-load "helm-gtags"
+  (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-find-tag)
+  (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+  (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+  (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+  (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
 
 ;; git-grep
 (require 'emacs-git-grep)
