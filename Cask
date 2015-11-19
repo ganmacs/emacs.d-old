@@ -108,6 +108,7 @@
 (depends-on "ace-jump-mode")
 (depends-on "point-undo")
 (depends-on "avy")
+(depends-on "jumplist")
 
 ;; looks
 (depends-on "yascroll")

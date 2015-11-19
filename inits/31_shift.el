@@ -35,4 +35,15 @@
 (global-set-key [up] 'pager-row-up)
 (global-set-key [down] 'pager-row-down)
 
+(require 'jumplist)
+(global-set-key (kbd "s-j") 'jumplist--set)
+(global-set-key (kbd "s-g") 'jumplist-previous)
+(global-set-key (kbd "s-G") 'jumplist-next)
+
+(custom-set-variables
+ '(jumplist-hook-commands
+   '(helm-swoop dired-jump helm-for-files emacs-git-grep
+     isearch-forward end-of-buffer beginning-of-buffer
+     find-file helm-gtags-find-tag)))
+
 ;;; 31_shift.el ends here
