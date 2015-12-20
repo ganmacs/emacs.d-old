@@ -47,6 +47,7 @@
 (global-set-key (kbd "s-o") 'begin-line-indent)
 (global-set-key (kbd "s-[") 'backward-list)
 (global-set-key (kbd "s-]") 'forward-list)
+(global-set-key (kbd "s-j") 'goto-matching-paren)
 
 (global-set-key (kbd "C-M-k") 'kill-this-buffer)
 
@@ -204,6 +205,32 @@
   (interactive)
   (transpose-chars -1)
   (forward-char))
+
+;; matching paren
+(defun close-paren-at-point-p ()
+  "Check closed paren at point."
+  (let ((s (char-to-string (char-after (point)))))
+    (s-contains? s ")]}")))
+
+(defun not-paren-matching-at-point-p ()
+  "Check not matching paren at point."
+  (let ((s (char-to-string (char-after (point)))))
+    (not (s-contains? s "{}[]()"))))
+
+(defun goto-matching-paren ()
+  "Jump to matching paren."
+  (interactive)
+  (cond ((close-paren-at-point-p)
+         (forward-char)
+         (-if-let (p (show-paren--default))
+             (goto-char (nth 2 p))
+           (backward-char)))
+        ((not-paren-matching-at-point-p)
+         (when (search-forward-regexp "[(\\[\[{)}]" (point-at-eol) t 1)
+           (backward-char)))
+        (t
+         (-if-let (p (show-paren--default))
+             (goto-char (nth 2 p))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Advice ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
