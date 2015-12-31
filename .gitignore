@@ -6,3 +6,4 @@ recentf
 url/*
 /.hl-save
 /ensime
+*.elc

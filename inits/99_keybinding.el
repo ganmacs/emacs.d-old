@@ -169,7 +169,6 @@
   (backward-char)
   (if (= (char-after (point)) ?\s) (previous-space)))
 
-;; 1行コメント
 (defun one-line-comment ()
   "Toggle a current line to comment or uncomment."
   (interactive)

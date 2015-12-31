@@ -66,7 +66,6 @@
  '(column-number-mode t)
  '(transient-mark-mode t)
  '(display-time-mode nil)
- '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(scroll-bar-mode nil)
