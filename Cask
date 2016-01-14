@@ -56,7 +56,8 @@
 
 ;; flycheck
 (depends-on "flycheck")
-(depends-on "flycheck-pos-tip")
+(depends-on "flycheck-pos-tip" :git "https://github.com/flycheck/flycheck-pos-tip" :ref "b63a3f93bac63eca183e44baf53caa2875e8bbff")
+;; (depends-on "flycheck-pos-tip")
 
 ;; git
 (depends-on "magit")
