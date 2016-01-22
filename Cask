@@ -2,6 +2,7 @@
 (source gnu)
 (source melpa)
 (source marmalade)
+(source org)
 
 ;; Setup
 (depends-on "init-loader")
