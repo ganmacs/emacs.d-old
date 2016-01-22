@@ -2,4 +2,4 @@
 # name: fmt.Println
 # key: p
 # --
-println($0)
+fmt.Println($0)
