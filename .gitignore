@@ -7,3 +7,7 @@ url/*
 /.hl-save
 /ensime
 *.elc
+
+bookmarks
+highlight.css
+target-install/

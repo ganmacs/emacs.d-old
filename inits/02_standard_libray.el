@@ -26,13 +26,13 @@
 ;; Detect full witdth white or tab or etc
 (require 'whitespace)
 (custom-set-faces
- '(whitespace-trailing ((t (:background "#232323" :foreground "DeepPink" :underline t))))
- '(whitespace-tab ((t (:background "#232323" :foreground "LightSkyBlue" :underline t))))
- '(whitespace-space ((t (:background "#232323" :foreground "GreenYellow" :weight bold))))
- '(whitespace-empty ((t (:background "#232323")))))
+ '(whitespace-trailing ((t (:background nil :foreground "DeepPink"))))
+ ;; '(whitespace-tab ((t (:background nil :foreground "#adff2f"))))
+ '(whitespace-space ((t (:background nil :foreground "GreenYellow"))))
+ '(whitespace-empty ((t (:background nil)))))
 
 (custom-set-variables
- '(whitespace-style '(face tabs spaces empty space-mark tab-mark))
+ '(whitespace-style '(face spaces empty space-mark))
  '(whitespace-space-regexp "\\(\u3000+\\)") ; visualize only full width space
  '(whitespace-display-mappings
    '((space-mark ?\u3000 [?\u25a1])

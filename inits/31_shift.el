@@ -26,6 +26,7 @@
 ;; point-undo
 (require 'point-undo)
 (global-set-key (kbd "C-=") 'point-undo)
+(global-set-key (kbd "C-\\") 'point-redo)
 
 (global-set-key (kbd "M-[") 'goto-last-change)
 (global-set-key (kbd "M-]") 'goto-last-change-reverse)
@@ -41,6 +42,7 @@
 (global-set-key (kbd "s->") 'jumplist-next)
 
 (custom-set-variables
+ '(jumplist-ex-mode t)
  '(jumplist-hook-commands
    '(helm-swoop dired-jump helm-for-files emacs-git-grep
      isearch-forward end-of-buffer beginning-of-buffer
