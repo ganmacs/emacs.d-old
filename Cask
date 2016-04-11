@@ -112,6 +112,9 @@
 (depends-on "php-mode")
 (depends-on "tuareg")
 
+;; docker
+(depends-on "dockerfile-mode")
+
 ;; shift
 (depends-on "ace-jump-mode")
 (depends-on "point-undo")
