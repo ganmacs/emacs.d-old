@@ -7,7 +7,7 @@
 (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 (autoload 'merlin-mode "merlin" "Merlin mode" t)
 
-(require 'ocp-indent)
+(require 'ocp-indent nil t)
 
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
 (add-hook 'caml-mode-hook 'merlin-mode t)
