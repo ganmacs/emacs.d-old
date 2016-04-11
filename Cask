@@ -95,6 +95,12 @@
 (depends-on "elixir-yasnippets")
 (depends-on "alchemist")
 
+;; rust
+(depends-on "rust-mode")
+(depends-on "flycheck-rust")
+(depends-on "racer")
+(depends-on "company-racer")
+
 ;; markup
 (depends-on "web-mode")
 (depends-on "emmet-mode")

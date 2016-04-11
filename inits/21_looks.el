@@ -24,6 +24,7 @@
 (add-hook 'c-mode-hook       'highlight-indentation-current-column-mode)
 (add-hook 'cc-mode-hook      'highlight-indentation-current-column-mode)
 (add-hook 'sh-mode-hook      'highlight-indentation-current-column-mode)
+(add-hook 'racer-mode-hook   'highlight-indentation-current-column-mode)
 
 ;; yascroll
 (global-yascroll-bar-mode 1)
@@ -51,6 +52,7 @@
 (add-hook 'c-mode-hook       'idle-highlight-mode)
 (add-hook 'cc-mode-hook      'idle-highlight-mode)
 (add-hook 'sh-mode-hook      'idle-highlight-mode)
+(add-hook 'racer-mode-hook   'idle-highlight-mode)
 
 ;; hl-anything
 (require 'hl-anything)

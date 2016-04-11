@@ -59,9 +59,9 @@
   "COMMAND should string."
   (interactive "MCommand: ")
   (do-applescript
-   (format "tell application \"iTerm\"
+   (format "tell application \"iTerm2\"
               activate
-              tell current session of current terminal
+              tell current session of current window
                 write text \"%s\"
               end tell
             end tell"

@@ -206,6 +206,17 @@
     )
   )
 
+;; racer
+(defvar kb-racer
+  '(("+"  . (key-combo-execute-original " + " " ++ "))
+    (","  . ", ")
+    ("/"  . (" / " "// "))
+    ("-"  . (key-combo-execute-original " - "))
+    ("=" . (" = " " == "))
+    ("->" . " -> ")
+    ("=>" . " => ")
+    ("|"  . (" | " " || " "|`!!'|"))
+    (":"  . (": " "::"))))
 
 ;; Elixir
 (defvar kb-elixir
@@ -277,7 +288,8 @@
   (key-combo-define-hook 'ensime-mode-hook 'kb-ensime-load kb-ensime)
   (key-combo-define-hook 'go-mode-hook 'kb-go-load kb-go)
   (key-combo-define-hook 'elixir-mode-hook 'kb-elixir-load kb-elixir)
-  (key-combo-define-hook 'c-mode-hook 'kb-c-load kb-c))
+  (key-combo-define-hook 'c-mode-hook 'kb-c-load kb-c)
+  (key-combo-define-hook 'racer-mode-hook 'racer-c-load kb-racer))
 
 (my/key-combo-load)
 
