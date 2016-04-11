@@ -9,13 +9,20 @@
   (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
   (define-key ruby-mode-map (kbd "s-r") 'chrome-reload)
   (define-key ruby-mode-map (kbd "C-M-f") 'chrome-next-tab)
-  (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab)
-  (define-key ruby-mode-map (kbd "C-c r") 'rspec-on-iterm))
+  (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab))
 
 (add-hook 'ruby-mode-hook 'my/browser-define-hook)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @for iTerm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun open-root-project ()
+  "Open root project."
+  (interactive)
+  (if (util/git-project?)
+      (find-file (util/git-directory))
+    (message "You are not in project direcotry")))
+(global-set-key (kbd "C-c o") 'open-root-project)
 
 (defun cd-on-iterm ()
   "Execute cd command on iterm."
