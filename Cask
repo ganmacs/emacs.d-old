@@ -76,6 +76,7 @@
 (depends-on "clojure-mode")
 (depends-on "cider")
 (depends-on "ac-cider")
+(depends-on "clj-refactor")
 
 ;; go
 (depends-on "go-mode")
@@ -128,6 +129,7 @@
 (depends-on "rainbow-mode")
 (depends-on "highlight-indentation")
 (depends-on "idle-highlight-mode")
+(depends-on "rainbow-delimiters")
 
 (depends-on "hl-anything")
 (depends-on "codic")

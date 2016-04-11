@@ -8,13 +8,25 @@
 ;; Clojure
 (defun my/cider-mode-hook ()
   "My Clojure mode."
-  (defvar clojure-mode-map)
   (cider-turn-on-eldoc-mode)
   (ac-flyspell-workaround)
   (ac-cider-setup)
-  (define-key clojure-mode-map (kbd "C-M-;") 'clojure-toggle-keyword-string)
-  (define-key clojure-mode-map (kbd "C-:") nil))
+  (define-key clojure-mode-map (kbd "C-M-:") 'clojure-toggle-keyword-string)
+  (define-key clojure-mode-map (kbd "C-:") nil)
+  (define-key clojure-mode-map (kbd "C-c C-d C-c") 'search-word-in-clojure)
+  (clj-refactor-mode 1)
+  (cljr-add-keybindings-with-prefix "C-c C-m"))
 
+(defun search-word-in-clojure ()
+  "Search word in alc."
+  (interactive)
+  (let* ((cmd "open \"%s\"")
+         (url (format "https://clojuredocs.org/search?q=%s"
+                      (or (util/marked-string) (read-shell-command "word: ")))))
+    (shell-command-to-string
+     (format cmd url))))
+
+(add-hook 'clojure-mode-hook 'flycheck-mode)
 (add-hook 'cider-mode-hook 'my/cider-mode-hook)
 
 (with-eval-after-load 'cider-mode
