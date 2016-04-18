@@ -20,7 +20,7 @@
   (setq YaTeX-use-AMS-LaTeX t)
   (setq YaTeX-dvi2-command-ext-alist
         '(("Preview\\|TeXShop\\|TeXworks\\|Skim\\|mupdf\\|xpdf\\|Firefox\\|Adobe" . ".pdf")))
-  (setq tex-command "/usr/texbin/ptex2pdf -l -ot '-synctex=1'")
+  (setq tex-command "/Library/TeX/texbin/ptex2pdf -l -ot '-synctex=1'")
   (setq bibtex-command (cond ((string-match "uplatex\\|-u" tex-command) "/usr/texbin/upbibtex")
                              ((string-match "platex" tex-command) "/usr/texbin/pbibtex")
                              ((string-match "lualatex\\|luajitlatex\\|xelatex" tex-command) "/usr/texbin/bibtexu")
