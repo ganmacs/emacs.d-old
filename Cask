@@ -86,6 +86,7 @@
 ;; scala
 (depends-on "scala-mode2")
 (depends-on "ensime")
+(depends-on "sbt-mode")
 
 ;; haskell
 (depends-on "haskell-mode")
@@ -101,6 +102,9 @@
 (depends-on "flycheck-rust")
 (depends-on "racer")
 (depends-on "company-racer")
+
+;; llvm
+(depends-on "llvm-mode")
 
 ;; markup
 (depends-on "web-mode")
