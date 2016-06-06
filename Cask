@@ -147,4 +147,6 @@
 
 (depends-on "editorconfig")
 (depends-on "use-package")
+(depends-on "http")
+;; (depends-on "json-reformat")
 ;; (depends-on "bind-key")
