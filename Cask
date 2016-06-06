@@ -106,6 +106,9 @@
 ;; llvm
 (depends-on "llvm-mode")
 
+;; terafform
+(depends-on "terraform-mode")
+
 ;; markup
 (depends-on "web-mode")
 (depends-on "emmet-mode")
