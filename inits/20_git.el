@@ -14,4 +14,12 @@
 (require 'git-gutter-fringe)
 (global-git-gutter-mode)
 
+;; git commmit
+(add-hook 'git-commit-mode-hook 'my-git-commit-hook)
+(defun my-git-commit-hook ()
+  "My git commit mode hook."
+  (save-selected-window (magit-process-buffer))
+  (git-commit-turn-on-flyspell)
+  (define-key flyspell-mode-map (kbd "C-.") 'other-window))
+
 ;;; 20_git.el ends here

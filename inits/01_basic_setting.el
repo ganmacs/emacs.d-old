@@ -7,6 +7,7 @@
 ;; Japanese
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
+(setenv "LANG" "en_US.UTF-8")
 
 ;; Coding
 (custom-set-variables
