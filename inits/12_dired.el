@@ -109,7 +109,7 @@
             (dired/include-whitelist? filename ext-lst)
             (not (dired/binary?)))
         (dired-find-file)
-      (if (yes-or-no-p (format "Do you really open? %s" filename))
+      (if (yes-or-no-p (format "Open %s" filename))
           (dired-find-file)))))
 
 ;;; 12_dired.el ends here
