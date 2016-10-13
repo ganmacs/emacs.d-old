@@ -3,4 +3,4 @@
 # key: p
 # type: snippet
 # --
-println!("{:?}", $0);
+println!("{:?}", $0)

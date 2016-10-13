@@ -11,6 +11,9 @@
   (setq company-auto-expand t)
   (setq company-idle-delay nil)
   (setq company-tooltip-align-annotations t)
+  (setq company-dabbrev-ignore-case nil)
+  (setq company-dabbrev-code-ignore-case nil)
+  (setq company-dabbrev-downcase nil)
 
   (setq company-frontends
         '(company-pseudo-tooltip-unless-just-one-frontend

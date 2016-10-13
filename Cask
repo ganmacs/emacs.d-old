@@ -84,8 +84,8 @@
 (depends-on "go-eldoc")
 
 ;; scala
-(depends-on "scala-mode2")
 (depends-on "ensime")
+(depends-on "scala-mode")
 (depends-on "sbt-mode")
 
 ;; haskell
