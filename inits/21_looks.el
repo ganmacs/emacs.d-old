@@ -71,6 +71,7 @@
 (add-hook 'cc-mode-hook      'idle-highlight-mode)
 (add-hook 'sh-mode-hook      'idle-highlight-mode)
 (add-hook 'racer-mode-hook   'idle-highlight-mode)
+(add-hook 'ensime-mode-hook 'idle-highlight-mode)
 (add-hook 'emacs-lisp-mode-hook 'idle-highlight-mode)
 
 ;; hl-anything

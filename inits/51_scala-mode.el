@@ -5,6 +5,13 @@
 (custom-set-faces
  '(ensime-implicit-highlight ((t (:underline nil)))))
 
+;; (with-eval-after-load 'ensime
+;;   (setq ensime-startup-snapshot-notification nil)
+;;   )
+
+(with-eval-after-load 'ensime-mode
+  (setq ensime-completion-style 'auto-complete))
+
 (defun my/ensime-mode-hook ()
   "My ensime mode hook."
   (define-key ensime-mode-map (kbd "M-n") 'forward-paragraph)

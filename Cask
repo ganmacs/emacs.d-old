@@ -84,7 +84,9 @@
 (depends-on "go-eldoc")
 
 ;; scala
-(depends-on "ensime")
+(depends-on "ensime"
+            :git "https://github.com/ensime/ensime-emacs"
+            :ref "2621509bc9811c103d7efc999d4722e9d4c788e9")
 (depends-on "scala-mode")
 (depends-on "sbt-mode")
 
