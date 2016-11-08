@@ -57,9 +57,5 @@
 ;; helm-ls-git
 (global-set-key (kbd "s-l") 'helm-ls-git-ls)
 
-;; helm-ghq
-(global-set-key (kbd "C-M-;") 'helm-ghq)
-(setq helm-ghq--dired t)
-
 (require 'recentf-ext)
 ;;; 11_helm.el ends here
