@@ -45,4 +45,9 @@
              markdown-mode
              ensime-mode))
 
+;; Remove japanese candidates
+(defadvice ac-word-candidates (after remove-word-contain-japanese activate)
+  (let ((contain-japanese (lambda (s) (string-match (rx (category japanese)) s))))
+    (setq ad-return-value (remove-if contain-japanese ad-return-value))))
+
 ;;; 13_auto-complete.el ends here
