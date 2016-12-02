@@ -32,4 +32,4 @@
 
 (global-set-key (kbd "C-M-;") 'helm-ghq-dired)
 
-;;; 100_helm_ghq.el ends here
+;;; 100_custom_functions.el ends here
