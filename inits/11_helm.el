@@ -51,8 +51,10 @@
   (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
 
 ;; git-grep
-(require 'emacs-git-grep)
-(global-set-key (kbd "M-g M-g") 'emacs-git-grep)
+(global-set-key (kbd "M-g M-g") '(lambda () (interactive)
+                                   (if (and mark-active transient-mark-mode)
+                                       (helm-git-grep-at-point)
+                                     (helm-git-grep))))
 
 ;; helm-ls-git
 (global-set-key (kbd "s-l") 'helm-ls-git-ls)

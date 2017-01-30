@@ -13,7 +13,6 @@
 (depends-on "helm-ls-git")
 (depends-on "helm-ag")
 (depends-on "helm-gtags")
-(depends-on "emacs-git-grep" :git "https://github.com/ganmacs/emacs-git-grep.git")
 (depends-on "helm-git-grep")
 
 ;; dired
@@ -33,7 +32,6 @@
 (depends-on "emacs-surround" :git "https://github.com/ganmacs/emacs-surround.git")
 
 ;; app interface
-(depends-on "dash-at-point")
 (depends-on "google-translate")
 
 ;; shell
@@ -127,6 +125,7 @@
 
 ;; shift
 (depends-on "point-undo")
+(depends-on "ace-jump-mode")
 (depends-on "avy")
 (depends-on "jumplist")
 
@@ -143,6 +142,7 @@
 (depends-on "codic")
 ; find-for-filesの色が出なくなる(helm on popwin時 2015/1/23)
 (depends-on "hl-anything" :git "https://github.com/boyw165/hl-anything.git" :ref "26c455a")
+;; (depends-on "highlight-symbol")
 
 (depends-on "rotate")
 (depends-on "pager")
