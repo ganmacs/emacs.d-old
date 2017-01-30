@@ -33,7 +33,9 @@
 ;; rhtml
 (util/append-to-list
  'auto-mode-alist '(("\\.eco$" . rhtml-mode)
-                    ("\\.jeco$" . rhtml-mode)))
+                    ("\\.jeco$" . rhtml-mode)
+                    ("\\.erb$" . rhtml-mode)))
+
 
 (require 'slim-mode)
 
