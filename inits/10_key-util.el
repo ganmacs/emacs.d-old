@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(editorconfig-mode 1)
+
 ;; smartrep
 (require 'smartrep)
 (global-unset-key (kbd "C-:"))
