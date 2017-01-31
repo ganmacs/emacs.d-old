@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; google translate
-(global-set-key (kbd "s-t") 'google-translate-smooth-translate)
+(global-set-key (kbd "s-S-t") 'google-translate-smooth-translate)
 (setq google-translate-translation-directions-alist
       '(("en" . "ja") ("ja" . "en")))
 

@@ -155,3 +155,5 @@
 (depends-on "http")
 ;; (depends-on "json-reformat")
 ;; (depends-on "bind-key")
+
+(depends-on "perspective")

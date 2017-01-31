@@ -168,4 +168,11 @@
                              (powerline-render rhs)))))))
 (my-powerline-theme)
 
+;; perspective
+(persp-mode)
+(global-set-key [C-tab] 'persp-next)
+(global-set-key [C-S-tab] 'persp-prev)
+(global-set-key (kbd "s-w") 'persp-kill)
+(global-set-key (kbd "s-t") 'persp-switch)
+
 ;;; 21_looks.el ends here

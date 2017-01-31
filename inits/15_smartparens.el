@@ -9,7 +9,7 @@
 (global-set-key (kbd "s-T") 'sp-transpose-hybrid-sexp)
 (global-set-key (kbd "C-)") 'sp-slurp-hybrid-sexp)
 (global-set-key (kbd "M-(") 'sp-push-hybrid-sexp)
-(global-set-key (kbd "s-S-t") 'sp-transpose-hybrid-sexp)
+;; (global-set-key (kbd "s-S-t") 'sp-transpose-hybrid-sexp)
 (global-set-key (kbd "s-u") 'sp-up-sexp)
 (global-set-key (kbd "s-d") 'sp-down-sexp)
 
