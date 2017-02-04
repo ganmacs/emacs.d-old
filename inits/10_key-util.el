@@ -27,7 +27,7 @@
 
 ;; emacs-surrround
 (require 'emacs-surround)
-(global-set-key (kbd "s-w") 'emacs-surround)
+(global-set-key (kbd "s-W") 'emacs-surround)
 (add-to-list 'emacs-surround-alist '("}" . ("{ " . " }")))
 
 ;;; 10_key-util.el ends here
