@@ -3,8 +3,8 @@
 ;;; Code:
 
 ;; emacs-github-open
-(require 'github-commit-open)
-(global-set-key (kbd "M-g o") 'github-commit-open)
+;; (require 'github-commit-open)
+;; (global-set-key (kbd "M-g o") 'github-commit-open)
 
 ;; magit
 (require 'magit)

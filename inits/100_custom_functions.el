@@ -32,4 +32,17 @@
 
 (global-set-key (kbd "C-M-;") 'helm-ghq-dired)
 
+(defun open-github-commit ()
+  (interactive)
+  (let* ((cmd1 "git blame -l -L %s,+1  %s | cut -d ' ' -f 1")
+         (cmd2 "hub browse -- commit/%s")
+         (zero "0000000000000000000000000000000000000000")
+         (commit-id (shell-command-to-string
+                     (format cmd1 (line-number-at-pos) buffer-file-name))))
+    (if (string= zero commit-id)
+        (message "This line is not commited")
+      (shell-command (format cmd2 commit-id)))))
+
+(global-set-key (kbd "M-g o") 'open-github-commit)
+
 ;;; 100_custom_functions.el ends here
