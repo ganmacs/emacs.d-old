@@ -78,6 +78,7 @@
 ;; go
 (depends-on "go-mode")
 (depends-on "go-autocomplete")
+(depends-on "company-go")
 (depends-on "go-eldoc")
 
 ;; scala

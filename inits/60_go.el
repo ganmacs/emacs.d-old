@@ -3,18 +3,11 @@
 ;;; Code:
 
 (with-eval-after-load 'go-mode
-  (define-key go-mode-map (kbd "M-.") 'godef-jump))
+  (define-key go-mode-map (kbd "M-.") 'godef-jump)
+  (add-to-list 'company-backends 'company-go)
 
-
-(require 'go-autocomplete)
-(defun my/golang-mode ()
-  "My go-lang mode"
-  (setq gofmt-command "goimports")
-  (ac-config-default))
-
-(add-hook 'go-mode-hook 'my/golang-mode)
-(add-hook 'go-mode-hook 'go-eldoc-setup)
-(add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (defvar my/helm-go-source
   '((name . "Helm Go")

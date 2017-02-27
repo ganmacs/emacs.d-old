@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: func
+# name: func_short
 # key: f
 # --
 func ${1:name}(${2:args}) {
