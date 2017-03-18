@@ -163,8 +163,8 @@
 ;; Markdown
 (defvar kb-markdown
   '(
-    ("。" . "．")
-    ("、"  . "，")
+    ;; ("。" . "．")
+    ;; ("、"  . "，")
     ("　" . ("	" key-combo-execute-original))))
 
 ;; Tuareg
