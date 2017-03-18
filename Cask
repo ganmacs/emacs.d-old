@@ -154,3 +154,5 @@
 ;; (depends-on "bind-key")
 
 (depends-on "perspective")
+
+(depends-on "yatex")
