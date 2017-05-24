@@ -28,7 +28,7 @@
   "Execute cd command on iterm."
   (interactive)
   (util/execute-on-iterm
-   (format "cd %s" (or (util/git-directory) default-directory))))
+   (format "cd %s"  default-directory)))
 (global-set-key (kbd "C-c d") 'cd-on-iterm)
 
 (defun rspec-on-iterm ()
