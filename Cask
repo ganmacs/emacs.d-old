@@ -113,6 +113,7 @@
 (depends-on "web-mode")
 (depends-on "emmet-mode")
 (depends-on "scss-mode")
+(depends-on "haml-mode")
 
 (depends-on "markdown-mode")
 (depends-on "js2-mode")
