@@ -12,7 +12,8 @@
 (global-set-key (kbd "s-;") 'helm-find-files)
 
 (with-eval-after-load 'helm
-  (define-key helm-map (kbd "C-h") 'delete-backward-char))
+  (define-key helm-map (kbd "C-h") 'delete-backward-char)
+  (define-key helm-map (kbd "C-t") 'transpose-chars))
 
 (custom-set-variables
  '(helm-delete-minibuffer-contents-from-point t)
