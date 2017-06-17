@@ -14,9 +14,4 @@
 
 (setq mc/list-file "~/.emacs.d/log/.mc-lists.el")
 
-;; drag-stuff
-(drag-stuff-global-mode t)
-(global-set-key (kbd "s-.") 'drag-stuff-right)
-(global-set-key (kbd "s-,") 'drag-stuff-left)
-
 ;;; 16_region.el ends here

@@ -11,13 +11,11 @@
 (depends-on "helm")
 (depends-on "helm-swoop")
 (depends-on "helm-ls-git")
-(depends-on "helm-ag")
 (depends-on "helm-gtags")
 (depends-on "helm-git-grep")
 
 ;; dired
 (depends-on "dired+")
-(depends-on "dired-isearch+" :git "https://github.com/ganmacs/dired-isearch-plus")
 
 ;; auto-complete
 (depends-on "auto-complete")
@@ -26,7 +24,6 @@
 
 ;; key-util
 (depends-on "key-combo")
-(depends-on "key-chord")
 (depends-on "smartrep")
 (depends-on "smartparens")
 (depends-on "emacs-surround" :git "https://github.com/ganmacs/emacs-surround.git")
@@ -50,8 +47,6 @@
 (depends-on "recentf-ext")
 (depends-on "zlc")
 (depends-on "undo-tree")
-(depends-on "anzu")
-(depends-on "drag-stuff")
 
 ;; flycheck
 (depends-on "flycheck")
@@ -68,6 +63,7 @@
 (depends-on "rhtml-mode")
 (depends-on "yaml-mode")
 (depends-on "slim-mode")
+(depends-on "haml-mode")
 
 ;; clojure
 (depends-on "clojure-mode")
@@ -109,11 +105,13 @@
 ;; terafform
 (depends-on "terraform-mode")
 
+;; yatex
+(depends-on "yatex")
+
 ;; markup
 (depends-on "web-mode")
 (depends-on "emmet-mode")
 (depends-on "scss-mode")
-(depends-on "haml-mode")
 
 (depends-on "markdown-mode")
 (depends-on "js2-mode")
@@ -127,33 +125,23 @@
 ;; shift
 (depends-on "point-undo")
 (depends-on "ace-jump-mode")
-(depends-on "avy")
 (depends-on "jumplist")
 
 ;; looks
 (depends-on "yascroll")
-(depends-on "hlinum")
 (depends-on "powerline")
-(depends-on "rainbow-mode")
 (depends-on "highlight-indentation")
 (depends-on "idle-highlight-mode")
 (depends-on "rainbow-delimiters")
 
 (depends-on "hl-anything")
-(depends-on "codic")
 
 (depends-on "rotate")
 (depends-on "pager")
 (depends-on "goto-chg")
-(depends-on "evil")
-(depends-on "emoji-cheat-sheet-plus")
 
 (depends-on "editorconfig")
-(depends-on "use-package")
 (depends-on "http")
 ;; (depends-on "json-reformat")
-;; (depends-on "bind-key")
 
 (depends-on "perspective")
-
-(depends-on "yatex")

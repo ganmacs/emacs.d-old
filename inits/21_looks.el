@@ -80,18 +80,6 @@
 (global-set-key (kbd "C-0") 'hl-highlight-thingatpt-local)
 (global-set-key (kbd "M-0") 'hl-unhighlight-all-local)
 
-;; rainbow-mode
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'scss-mode-hook 'rainbow-mode)
-(add-hook 'html-mode-hook 'rainbow-mode)
-(add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
-
-;; hlinum
-(require 'hlinum)
-(hlinum-activate)
-(custom-set-faces
- '(linum-highlight-face ((t (:foreground "black" :background "#fce94f")))))
-
 ;; powerline
 (require 'powerline)
 
