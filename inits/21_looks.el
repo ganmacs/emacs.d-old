@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 ;;; 21_looks.el --- looks configuration
 ;;; Commentary:
 ;;; Code:
@@ -162,5 +164,15 @@
 (global-set-key [C-S-tab] 'persp-prev)
 (global-set-key (kbd "s-W") 'persp-kill)
 (global-set-key (kbd "s-T") 'persp-switch)
+
+(defun my-flash ()
+  (interactive)
+  (let* ((ol (make-overlay (line-beginning-position) (1+ (line-end-position))))
+         (cancel (lambda () (delete-overlay ol))))
+    (overlay-put ol 'face `((:inherit highlight :distant-foreground "black")))
+    (run-at-time 0.5 nil cancel)))
+
+(add-hook 'focus-in-hook 'my-flash)
+(global-set-key (kbd "ESC ESC ESC") 'my-flash)
 
 ;;; 21_looks.el ends here
