@@ -119,6 +119,11 @@
 (depends-on "php-mode")
 (depends-on "tuareg")
 
+;; protbuf
+(depends-on "protobuf-mode")
+
+;; c++
+(depends-on "bazel-mode")
 ;; docker
 (depends-on "dockerfile-mode")
 
