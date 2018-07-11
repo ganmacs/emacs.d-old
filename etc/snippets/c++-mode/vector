@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: vector
-# key: v
+# key: vec
 # --
-vector<${1:type}> $0;
+std::vector<${1:Class}> $0;
