@@ -10,7 +10,7 @@
     (quickrun)))
 
 (quickrun-add-command "c++/clang++"
-  '((:exec . ("%c -std=c++11 %o -o %e %s" "%e %a")))
+  '((:exec . ("%c -std=c++14 %o -o %e %s" "%e %a")))
   :override t)
 
 (global-set-key (kbd "s-R") 'my/quickrun)
