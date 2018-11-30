@@ -39,13 +39,6 @@
      (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
  '(global-whitespace-mode 1))
 
-(require 'ucs-normalize)
-;; pdfコピーの時の濁点分離を治す
-(defun ucs-normalize-NFC-buffer ()
-  "Normalize NFC buffer."
-  (interactive)
-  (ucs-normalize-NFC-region (point-min) (point-max)))
-
 ;; Remember cusor point
 (require 'saveplace)
 (custom-set-variables

@@ -4,83 +4,11 @@
 ;;; Commentary:
 ;;; Code:
 
-;; rainbow-delimiters
-
-(add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-
-(require 'color)
-(defun rainbow-delimiters-using-stronger-colors ()
-  (interactive)
-  (cl-loop
-   for index from 1 to rainbow-delimiters-max-face-count
-   do
-   (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
-     (cl-callf color-saturate-name (face-foreground face) 30))))
-(add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors)
-
-
-;; highlight-indentation
-(require 'highlight-indentation)
-(custom-set-faces
- '(highlight-indentation-current-column-face ((t (:background "#222")))))
-
-(add-hook 'ruby-mode-hook    'highlight-indentation-current-column-mode)
-(add-hook 'coffee-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'js2-mode-hook     'highlight-indentation-current-column-mode)
-(add-hook 'rhtml-mode-hook   'highlight-indentation-current-column-mode)
-(add-hook 'clojure-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'java-mode-hook    'highlight-indentation-current-column-mode)
-(add-hook 'python-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'scheme-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'haskell-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'scala-mode-hook   'highlight-indentation-current-column-mode)
-(add-hook 'ensime-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'tuareg-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'go-mode-hook      'highlight-indentation-current-column-mode)
-(add-hook 'slim-mode-hook    'highlight-indentation-current-column-mode)
-(add-hook 'elixir-mode-hook  'highlight-indentation-current-column-mode)
-(add-hook 'c-mode-hook       'highlight-indentation-current-column-mode)
-(add-hook 'cc-mode-hook      'highlight-indentation-current-column-mode)
-(add-hook 'sh-mode-hook      'highlight-indentation-current-column-mode)
-(add-hook 'racer-mode-hook   'highlight-indentation-current-column-mode)
-(add-hook 'emacs-lisp-mode-hook 'highlight-indentation-current-column-mode)
-
 ;; yascroll
 (global-yascroll-bar-mode 1)
 (custom-set-faces
  '(yascroll:thumb-text-area ((t (:background "#777"))))
  '(yascroll:thumb-fringe ((t (:background "#777" :foreground "#777")))))
-
-;; idle-highlight-mode
-(custom-set-faces '(idle-highlight ((t (:underline t)))))
-
-(add-hook 'ruby-mode-hook    'idle-highlight-mode)
-(add-hook 'coffee-mode-hook  'idle-highlight-mode)
-(add-hook 'js2-mode-hook     'idle-highlight-mode)
-(add-hook 'rhtml-mode-hook   'idle-highlight-mode)
-(add-hook 'clojure-mode-hook 'idle-highlight-mode)
-(add-hook 'java-mode-hook    'idle-highlight-mode)
-(add-hook 'python-mode-hook  'idle-highlight-mode)
-(add-hook 'scheme-mode-hook  'idle-highlight-mode)
-(add-hook 'haskell-mode-hook 'idle-highlight-mode)
-(add-hook 'scala-mode-hook   'idle-highlight-mode)
-(add-hook 'tuareg-mode-hook  'idle-highlight-mode)
-(add-hook 'go-mode-hook      'idle-highlight-mode)
-(add-hook 'slim-mode-hook    'idle-highlight-mode)
-(add-hook 'elixir-mode-hook  'idle-highlight-mode)
-(add-hook 'c-mode-hook       'idle-highlight-mode)
-(add-hook 'cc-mode-hook      'idle-highlight-mode)
-(add-hook 'sh-mode-hook      'idle-highlight-mode)
-(add-hook 'racer-mode-hook   'idle-highlight-mode)
-(add-hook 'ensime-mode-hook 'idle-highlight-mode)
-(add-hook 'emacs-lisp-mode-hook 'idle-highlight-mode)
-
-;; hl-anything
-(require 'hl-anything)
-(hl-highlight-mode 1)
-(global-set-key (kbd "C-0") 'hl-highlight-thingatpt-local)
-(global-set-key (kbd "M-0") 'hl-unhighlight-all-local)
 
 ;; powerline
 (require 'powerline)

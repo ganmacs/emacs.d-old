@@ -74,14 +74,7 @@
  '(initial-scratch-message "") ; Remove messages in intial scratch buffer
  '(ring-bell-function 'ignore)
  '(global-linum-mode t)
- '(global-hl-line-mode t)
  '(show-trailing-whitespace t))
-
-;; Parens
-(custom-set-variables
- '(show-paren-delay 0)
- '(show-paren-style 'expression)
- '(show-paren-mode t))
 
 ;; coursor
 (custom-set-variables

@@ -21,6 +21,7 @@
   (define-key dired-mode-map (kbd "SPC") 'dired/do-quicklook)
   (define-key dired-mode-map (kbd "C-o") 'dired-find-file-other-window)
   (define-key dired-mode-map (kbd "V") 'my-dired-view-marking-files)
+  (define-key dired-mode-map (kbd "M-g") 'helm-git-grep)
 
   (define-key dired-mode-map (kbd "h") 'dired-up-directory)
   (define-key dired-mode-map (kbd "j") 'diredp-next-line)

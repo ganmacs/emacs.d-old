@@ -2,23 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun add-keys-to-ace-jump-mode (prefix c &optional mode)
-  "Define macro with PREFIX and C as char and MODE is char or word."
-  (define-key global-map
-    (read-kbd-macro (concat prefix (string c)))
-    `(lambda ()
-       (interactive)
-       (funcall (if (eq ',mode 'word)
-                    #'ace-jump-char-mode
-                  #'ace-jump-word-mode) ,c))))
-
-(cl-loop for c from ?0 to ?9 do (add-keys-to-ace-jump-mode "A-" c))
-(cl-loop for c from ?a to ?z do (add-keys-to-ace-jump-mode "A-" c))
-(cl-loop for c from ?! to ?~ do (add-keys-to-ace-jump-mode "A-" c))
-(cl-loop for c from ?0 to ?9 do (add-keys-to-ace-jump-mode "A-C-" c 'word))
-(cl-loop for c from ?a to ?z do (add-keys-to-ace-jump-mode "A-C-" c 'word))
-(cl-loop for c from ?! to ?~ do (add-keys-to-ace-jump-mode "A-C-" c 'word))
-
 ;; point-undo
 (require 'point-undo)
 (global-set-key (kbd "C-=") 'point-undo)
