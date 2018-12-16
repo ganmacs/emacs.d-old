@@ -2,16 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun my/browser-define-hook ()
-  "My Browser definintion hook."
-  (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
-  (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
-  (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
-  (define-key ruby-mode-map (kbd "s-r") 'chrome-reload)
-  (define-key ruby-mode-map (kbd "C-M-f") 'chrome-next-tab)
-  (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab))
+;; (defun my/browser-define-hook ()
+;;   "My Browser definintion hook."
+;;   (define-key ruby-mode-map (kbd "C-M-p") 'chrome-scroll-up)
+;;   (define-key ruby-mode-map (kbd "C-M-n") 'chrome-scroll-down)
+;;   (define-key ruby-mode-map (kbd "C-M-r") 'chrome-reload)
+;;   (define-key ruby-mode-map (kbd "s-r") 'chrome-reload)
+;;   (define-key ruby-mode-map (kbd "C-M-f") 'chrome-next-tab)
+;;   (define-key ruby-mode-map (kbd "C-M-b") 'chrome-previous-tab))
 
-(add-hook 'ruby-mode-hook 'my/browser-define-hook)
+;; (add-hook 'ruby-mode-hook 'my/browser-define-hook)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @for iTerm ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -10,10 +10,6 @@
 (smartrep-define-key global-map "C-:"
   '(("t" . 'rotate-window)
     ("T" . 'rotate-layout)
-    ("h" . (shrink-window-horizontally 1))
-    ("j" . (shrink-window -1))
-    ("k" . (shrink-window 1))
-    ("l" . (shrink-window-horizontally -1))
     ("<left>" . (shrink-window-horizontally 1))
     ("<right>" . (shrink-window-horizontally -1))
     ("<up>" . (shrink-window -1))

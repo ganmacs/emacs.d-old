@@ -19,16 +19,7 @@
   (define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
   (define-key dired-mode-map (kbd "C-g") 'quit-window)
   (define-key dired-mode-map (kbd "SPC") 'dired/do-quicklook)
-  (define-key dired-mode-map (kbd "C-o") 'dired-find-file-other-window)
-  (define-key dired-mode-map (kbd "V") 'my-dired-view-marking-files)
-  (define-key dired-mode-map (kbd "M-g") 'helm-git-grep)
-
-  (define-key dired-mode-map (kbd "h") 'dired-up-directory)
-  (define-key dired-mode-map (kbd "j") 'diredp-next-line)
-  (define-key dired-mode-map (kbd "k") 'diredp-previous-line)
-  (define-key dired-mode-map (kbd "l") 'dired-file-open-or-not)
-
-  (define-key dired-mode-map (kbd "s") 'dired-isearch+))
+  (define-key dired-mode-map (kbd "M-g") 'helm-git-grep))
 
 (defun my/dired-mode-hook ()
   "My dired mode hook."

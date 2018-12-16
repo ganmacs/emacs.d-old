@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-S-b") 'previous-space)
 (global-set-key (kbd "C-S-s") 'quote-insert-inline)
 (global-set-key (kbd "C-S-d") 'double-quote-insert-inline)
+(global-set-key (kbd "C-S-c") 'colon-insertion)
 (global-set-key (kbd "C-S-t") 'previous-transpose-char)
 
 (global-set-key (kbd "M-h") 'backward-kill-word)
@@ -27,8 +28,6 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
-(global-set-key (kbd "M-C-a") 'backward-sentence)
-(global-set-key (kbd "M-C-e") 'forward-sentence)
 (global-set-key (kbd "M-g g") 'goto-line)
 
 (global-set-key (kbd "s-k") 'kill-sexp)
@@ -45,9 +44,6 @@
 (global-set-key (kbd "s-i") 'global-whitespace-mode)
 (global-set-key (kbd "s-m") 'end-line-indent)
 (global-set-key (kbd "s-o") 'begin-line-indent)
-(global-set-key (kbd "s-[") 'backward-list)
-(global-set-key (kbd "s-]") 'forward-list)
-(global-set-key (kbd "s-j") 'goto-matching-paren)
 
 (global-set-key (kbd "C-M-k") 'kill-this-buffer)
 
@@ -140,21 +136,34 @@
 
 (defvar inline-separator "^\s()[]:;,=.\n{}")
 
+(defun colon-insertion ()
+  "Wrap string by quote."
+  (interactive)
+  (save-excursion
+    (skip-chars-backward inline-separator)
+    (if (= (char-before (point)) ?\:)
+        (delete-backward-char 1)
+    (insert ":"))))
+
 (defun quote-insert-inline ()
   "Wrap string by quote."
   (interactive)
-  (skip-chars-backward inline-separator)
-  (insert "'")
-  (skip-chars-forward inline-separator)
-  (insert "'"))
+  (save-excursion
+    (skip-chars-backward inline-separator)
+    (insert "'")
+    (skip-chars-forward inline-separator)
+    (insert "'"))
+  )
 
 (defun double-quote-insert-inline ()
   "Wrap string by double quote."
   (interactive)
-  (skip-chars-backward inline-separator)
-  (insert "\"")
-  (skip-chars-forward inline-separator)
-  (insert "\""))
+  (save-excursion
+    (skip-chars-backward inline-separator)
+    (insert "\"")
+    (skip-chars-forward inline-separator)
+    (insert "\"")))
+
 
 (defun next-space ()
   "Move forward until space appear."
@@ -204,32 +213,6 @@
   (interactive)
   (transpose-chars -1)
   (forward-char))
-
-;; matching paren
-(defun close-paren-at-point-p ()
-  "Check closed paren at point."
-  (let ((s (char-to-string (char-after (point)))))
-    (s-contains? s ")]}")))
-
-(defun not-paren-matching-at-point-p ()
-  "Check not matching paren at point."
-  (let ((s (char-to-string (char-after (point)))))
-    (not (s-contains? s "{}[]()"))))
-
-(defun goto-matching-paren ()
-  "Jump to matching paren."
-  (interactive)
-  (cond ((close-paren-at-point-p)
-         (forward-char)
-         (-if-let (p (show-paren--default))
-             (goto-char (nth 2 p))
-           (backward-char)))
-        ((not-paren-matching-at-point-p)
-         (when (search-forward-regexp "[(\\[\[{)}]" (point-at-eol) t 1)
-           (backward-char)))
-        (t
-         (-if-let (p (show-paren--default))
-             (goto-char (nth 2 p))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Advice ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

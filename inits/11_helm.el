@@ -8,7 +8,6 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-i") 'helm-imenu)
-(global-set-key (kbd "C-x C-h j") 'helm-c-apropos)
 (global-set-key (kbd "s-;") 'helm-find-files)
 
 (with-eval-after-load 'helm
@@ -22,7 +21,6 @@
 ;; swoop
 (global-set-key (kbd "M-o") 'helm-swoop)
 (global-set-key (kbd "M-O") 'helm-swoop-back-to-last-point)
-(define-key isearch-mode-map (kbd "C-o") 'helm-swoop-from-isearch)
 
 (custom-set-variables
  '(helm-multi-swoop-edit-save nil)

@@ -10,7 +10,5 @@
 
 (global-set-key (kbd "C-%") 'anzu-replace-at-cursor-thing)
 (global-set-key (kbd "M-%") 'anzu-query-replace-at-cursor)
-(global-set-key (kbd "s-%") 'anzu-query-replace)
-(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
 
 ;;; 30_anzu.el ends here

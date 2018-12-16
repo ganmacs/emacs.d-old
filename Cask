@@ -29,7 +29,6 @@
 (depends-on "emacs-surround" :git "https://github.com/ganmacs/emacs-surround.git")
 
 ;; shell
-(depends-on "shell-switcher")
 (depends-on "exec-path-from-shell")
 
 (depends-on "yasnippet")
