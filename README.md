@@ -1,17 +1,15 @@
 ## Installation
 
 ```
-$ brew install cask cmigemo
+$ brew install cask
 ```
 
 ```
-$ git clone https://github.com/ganmacs/emacs.d/archive/master.zip .emacs.d
+$ git clone https://github.com/ganmacs/emacs.d.git .emacs.d
 $ cd .emacs.d
 $ cask install
 ```
 
 ## Requirements
 
-* brew
-* cask
-* cmigemo
+* [cask](https://github.com/cask/cask)
