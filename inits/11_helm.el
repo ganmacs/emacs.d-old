@@ -3,30 +3,28 @@
 ;;; Code:
 
 ;; helm
-(global-set-key (kbd "C-;") 'helm-for-files)
-(global-set-key (kbd "C-M-/") 'helm-resume)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "M-i") 'helm-imenu)
-(global-set-key (kbd "s-;") 'helm-find-files)
+(use-package helm
+  :init (require 'helm)
+  :bind (("C-;" . helm-for-files)
+	       ("C-M-/" . helm-resume)
+	       ("M-x" . helm-M-x)
+	       ("M-i" . helm-imenu)
+	       ("M-y" . helm-show-kill-ring)
+	       ("M-g M-g" . counsel-git-grep)
+         :map helm-map
+         ("C-h" . delete-backward-char)
+         ("C-t" . transpose-chars))
+  :config
+  (setq
+   helm-delete-minibuffer-contents-from-point t
+   helm-ff-auto-update-initial-value nil))
 
-(with-eval-after-load 'helm
-  (define-key helm-map (kbd "C-h") 'delete-backward-char)
-  (define-key helm-map (kbd "C-t") 'transpose-chars))
+(use-package helm-swoop
+  :bind (("M-o" . helm-swoop)
+         ("M-O" . helm-swoop-back-to-last-point)))
 
-(custom-set-variables
- '(helm-delete-minibuffer-contents-from-point t)
- '(helm-ff-auto-update-initial-value nil))
-
-;; swoop
-(global-set-key (kbd "M-o") 'helm-swoop)
-(global-set-key (kbd "M-O") 'helm-swoop-back-to-last-point)
-
-(custom-set-variables
- '(helm-multi-swoop-edit-save nil)
- '(helm-swoop-split-with-multiple-windows nil)
- '(helm-swoop-split-direction 'split-window-vertically)
- '(helm-swoop-speed-or-color nil))
+(use-package helm-ls-git
+  :bind ("s-l" . helm-ls-git-ls))
 
 ;; ag
 (global-set-key (kbd "M-g .") 'helm-ag)                     ;; ag
@@ -54,9 +52,6 @@
                                    (if (and mark-active transient-mark-mode)
                                        (helm-git-grep-at-point)
                                      (helm-git-grep))))
-
-;; helm-ls-git
-(global-set-key (kbd "s-l") 'helm-ls-git-ls)
 
 (require 'recentf-ext)
 ;;; 11_helm.el ends here

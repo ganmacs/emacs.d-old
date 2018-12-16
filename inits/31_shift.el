@@ -28,8 +28,4 @@
      find-file helm-gtags-find-tag helm-imenu)
    '(jumplist-ex-mode t)))
 
-(use-package dumb-jump
-  :bind (("C-#" . dumb-jump-go)
-         ("C-$" . dumb-jump-back)))
-
 ;;; 31_shift.el ends here
