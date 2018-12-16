@@ -28,9 +28,6 @@
 (depends-on "smartparens")
 (depends-on "emacs-surround" :git "https://github.com/ganmacs/emacs-surround.git")
 
-;; shell
-(depends-on "exec-path-from-shell")
-
 (depends-on "yasnippet")
 (depends-on "popwin")
 (depends-on "duplicate-thing")
@@ -41,6 +38,9 @@
 (depends-on "quickrun")
 (depends-on "recentf-ext")
 (depends-on "zlc")
+(depends-on "use-package")
+(depends-on "dumb-jump")
+(depends-on "exec-path-from-shell")
 
 ;; flycheck
 (depends-on "flycheck")
