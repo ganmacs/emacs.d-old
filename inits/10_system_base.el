@@ -19,9 +19,6 @@
   :config
   (setq mc/list-file "~/.emacs.d/log/.mc-lists.el"))
 
-(use-package duplicate-thing
-  :bind ("M-j" . duplicate-thing))
-
 (use-package anzu
   :bind (("C-%" . anzu-replace-at-cursor-thing)
          ("M-%" . anzu-query-replace-at-cursor))

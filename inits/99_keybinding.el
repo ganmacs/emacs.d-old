@@ -27,6 +27,7 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-a") 'beginning-of-defun)
+(global-set-key (kbd "M-j") 'duplicate-line)
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "M-g g") 'goto-line)
 
@@ -164,7 +165,6 @@
     (skip-chars-forward inline-separator)
     (insert "\"")))
 
-
 (defun next-space ()
   "Move forward until space appear."
   (interactive)
@@ -213,6 +213,22 @@
   (interactive)
   (transpose-chars -1)
   (forward-char))
+
+(defun duplicate-line (n)
+  (interactive "P")
+  (let ((need-comment-line (consp n))
+        (begin-point (if mark-active (region-beginning) (point-at-bol)))
+        (end-point (if mark-active (region-end) (point-at-bol 2))))
+    (save-excursion
+      (forward-line)
+      (kill-ring-save begin-point end-point)
+      (if need-comment-line
+          (progn
+            (comment-region begin-point end-point)
+            (yank))
+      (dotimes (i (or n 1))
+        (yank))))
+    (next-line)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; @Advice ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

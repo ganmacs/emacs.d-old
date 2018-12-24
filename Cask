@@ -30,7 +30,6 @@
 
 (depends-on "yasnippet")
 (depends-on "popwin")
-(depends-on "duplicate-thing")
 (depends-on "multiple-cursors")
 (depends-on "expand-region")
 (depends-on "anzu")
