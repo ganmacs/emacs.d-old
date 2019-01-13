@@ -3,8 +3,8 @@
 ;;; Code:
 
 (defun my/c++-mode-hook ()
-  (setq c-basic-offset 4)
-  (setq tab-width 4)
+  (setq c-basic-offset 2)
+  (setq tab-width 2)
   (setq flycheck-gcc-language-standard "c++14")
   (setq flycheck-clang-language-standard "c++14")
   (setq flycheck-clang-warnings '("no-pragma-once-outside-header"))
