@@ -3,7 +3,7 @@
 ;;; Code:
 
 (custom-set-variables
- '(yas-snippet-dirs (concat user-emacs-directory "etc/snippets"))
+ '(yas-snippet-dirs (list (concat user-emacs-directory "etc/snippets")))
  '(yas-prompt-functions '(helm-editutil-yas-prompt))
  '(yas-global-mode 1))
 
