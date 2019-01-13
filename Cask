@@ -68,7 +68,6 @@
 (depends-on "racer")
 (depends-on "company-racer")
 
-(depends-on "llvm-mode")
 (depends-on "terraform-mode")
 (depends-on "protobuf-mode")
 (depends-on "dockerfile-mode")

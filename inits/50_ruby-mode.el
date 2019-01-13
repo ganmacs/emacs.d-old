@@ -36,7 +36,4 @@
                     ("\\.jeco$" . rhtml-mode)
                     ("\\.erb$" . rhtml-mode)))
 
-
-(require 'slim-mode)
-
 ;;; 50_ruby-mode.el ends here

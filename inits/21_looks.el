@@ -86,13 +86,6 @@
                              (powerline-render rhs)))))))
 (my-powerline-theme)
 
-;; perspective
-(persp-mode)
-(global-set-key [C-tab] 'persp-next)
-(global-set-key [C-S-tab] 'persp-prev)
-(global-set-key (kbd "s-W") 'persp-kill)
-(global-set-key (kbd "s-T") 'persp-switch)
-
 (defun my-flash ()
   (interactive)
   (let* ((ol (make-overlay (line-beginning-position) (1+ (line-end-position))))
