@@ -19,7 +19,8 @@
   (define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
   (define-key dired-mode-map (kbd "C-g") 'quit-window)
   (define-key dired-mode-map (kbd "SPC") 'dired/do-quicklook)
-  (define-key dired-mode-map (kbd "M-g") 'helm-git-grep))
+  (define-key dired-mode-map (kbd "M-g") 'helm-git-grep)
+  (define-key dired-mode-map (kbd "C-M-g") 'magit-status))
 
 (defun my/dired-mode-hook ()
   "My dired mode hook."
