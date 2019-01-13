@@ -15,7 +15,7 @@
 (depends-on "helm-git-grep")
 
 ;; dired
-(depends-on "dired+")
+(depends-on "dired+" :git "https://github.com/emacsmirror/dired-plus.git")
 
 ;; auto-complete
 (depends-on "auto-complete")
@@ -81,7 +81,7 @@
 (depends-on "bazel-mode")
 
 ;; shift
-(depends-on "point-undo")
+(depends-on "point-undo" :git "https://github.com/emacsmirror/point-undo.git")
 (depends-on "jumplist")
 
 ;; looks
