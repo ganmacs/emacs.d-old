@@ -82,9 +82,6 @@
  '(blink-cursor-delay 300.0)           ; 5 minitus
  '(blink-cursor-mode 1))
 
-;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (90 60)))
-
 ;; scroll
 (custom-set-variables
  '(scroll-conservatively 35)
