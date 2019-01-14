@@ -48,6 +48,7 @@
   (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
 
 ;; git-grep
+(require 'compile)                      ; needed for define-compilation-mode
 (global-set-key (kbd "M-g M-g") '(lambda () (interactive)
                                    (if (and mark-active transient-mark-mode)
                                        (helm-git-grep-at-point)
