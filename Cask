@@ -17,8 +17,9 @@
 ;; dired
 (depends-on "dired+" :git "https://github.com/emacsmirror/dired-plus.git")
 
-;; auto-complete
-(depends-on "auto-complete")
+;; autocompletion
+(depends-on "company")
+(depends-on "company-dict")
 (depends-on "fuzzy")
 (depends-on "popup")
 

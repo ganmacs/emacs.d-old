@@ -96,4 +96,12 @@
 (add-hook 'focus-in-hook 'my-flash)
 (global-set-key (kbd "ESC ESC ESC") 'my-flash)
 
+(use-package popup
+  :config
+  (let ((bgc "#333") (color "#729fcf"))
+    (set-face-foreground 'popup-summary-face color)
+    (set-face-background 'popup-summary-face bgc)
+    (set-face-background 'popup-tip-face "#555")
+    (set-face-foreground 'popup-tip-face "#eee")))
+
 ;;; 21_looks.el ends here

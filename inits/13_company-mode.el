@@ -1,20 +1,31 @@
-;;; 32_company-mode.el --- company mode configuration
+;;; 13_company-mode.el --- company mode configuration
 ;;; Commentary:
 ;;; Code:
 
-(global-company-mode +1)
-(global-set-key (kbd "C-M-i") 'company-complete)
-
-(with-eval-after-load 'company
-  (setq company-minimum-prefix-length 2)
+(use-package company
+  :bind (("M-/" .  company-complete)
+         ("C-M-i" .  company-complete)
+         :map company-active-map
+         ("M-n" . nil)
+         ("M-p" . nil)
+         ("C-n" . 'company-select-next)
+         ("C-p" . 'company-select-previous)
+         ("C-h" . nil)
+         ("M-d" . 'company-show-doc-buffer)
+         ("<RET>" .  'company-complete-selection)
+         ("<tab>". 'company-complete-selection)
+         ("TAB" . 'company-complete-selection)
+         ("C-m" . 'company-complete-selection))
+  :config
+  (global-company-mode +1)
   (setq company-selection-wrap-around t)
+  (setq company-minimum-prefix-length 5)
   (setq company-auto-expand t)
-  (setq company-idle-delay nil)
+  (setq company-idle-delay 0)
   (setq company-tooltip-align-annotations t)
   (setq company-dabbrev-ignore-case nil)
   (setq company-dabbrev-code-ignore-case nil)
   (setq company-dabbrev-downcase nil)
-
   (setq company-frontends
         '(company-pseudo-tooltip-unless-just-one-frontend
           company-preview-frontend
@@ -38,17 +49,10 @@
     (set-face-attribute 'company-tooltip-annotation nil
                         :foreground "red")))
 
-(defun my/company-mode ()
-  "My company mode."
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "<RET>") 'company-expand-top)
-  (define-key company-active-map (kbd "C-m") 'company-expand-top)
-  (define-key company-active-map (kbd "C-h") nil) ;override show doc
-  (define-key company-active-map (kbd "M-d") 'company-show-doc-buffer) ;override show doc
-  (define-key company-active-map (kbd "<Tab>") 'company-complete-common-or-cycle))
-(add-hook 'company-mode-hook 'my/company-mode)
+(use-package company-dict
+  :config
+  (setq company-dict-dir (concat user-emacs-directory "etc/ac-dict"))
+  (add-to-list 'company-backends 'company-dict))
 
-;;; 32_company-mode.el ends here
+
+;;; 13_company-mode.el ends here
