@@ -62,6 +62,10 @@
 
 (setq frame-title-format "%f")          ; %f is fullpath
 
+(if (version<= "26.0.50" emacs-version)
+    (global-display-line-numbers-mode)
+  (global-linum-mode))
+
 ;; Looks
 (custom-set-variables
  '(column-number-mode t)
@@ -73,7 +77,6 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message "") ; Remove messages in intial scratch buffer
  '(ring-bell-function 'ignore)
- '(global-linum-mode t)
  '(show-trailing-whitespace t))
 
 ;; coursor
