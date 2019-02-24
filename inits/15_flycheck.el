@@ -11,4 +11,6 @@
 (with-eval-after-load 'flycheck
   (flycheck-popup-tip-mode 1))
 
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
+
 ;;; 15_flycheck.el ends here
