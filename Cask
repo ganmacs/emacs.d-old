@@ -15,7 +15,7 @@
 (depends-on "helm-git-grep")
 
 ;; dired
-(depends-on "dired+" :git "https://github.com/emacsmirror/dired-plus.git")
+(depends-on "dired+" :git "https://github.com/emacsmirror/dired-plus.git" :ref "3e788b7069ff235c904be30754df3d0f687906df")
 
 ;; autocompletion
 (depends-on "company")
